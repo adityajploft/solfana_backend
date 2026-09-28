@@ -1,0 +1,47 @@
+paths:
+
+  /api/mobile/static-pages/settings:
+    get:
+      tags:
+        - Static Pages
+      summary: Get Application Settings
+      responses:
+        '200':
+          description: Settings fetched successfully
+
+  /api/mobile/static-pages/support-email:
+    get:
+      tags:
+        - Static Pages
+      summary: Get Support Email
+      responses:
+        '200':
+          description: Support email fetched successfully
+
+  /api/mobile/static-pages/become-podcaster:
+    post:
+      tags:
+        - Static Pages
+      summary: Become a Podcaster Request
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/static-pages.yaml#/BecomePodcasterRequest'
+      responses:
+        '200':
+          description: Request submitted successfully
+
+  /api/mobile/static-pages/delete-account:
+    post:
+      tags:
+        - Static Pages
+      summary: Delete User Account
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Account deleted successfully

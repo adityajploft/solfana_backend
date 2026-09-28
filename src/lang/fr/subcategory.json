@@ -1,0 +1,12 @@
+{
+  "SUBCATEGORY_CREATED": "Sous-catégorie créée avec succès",
+  "SUBCATEGORY_UPDATED": "Sous-catégorie mise à jour avec succès",
+  "SUBCATEGORY_DELETED": "Sous-catégorie supprimée avec succès",
+  "SUBCATEGORY_LIST": "Sous-catégories récupérées avec succès",
+  "SUBCATEGORY_DETAIL": "Détails de la sous-catégorie récupérés",
+  "SUBCATEGORY_EXISTS": "La sous-catégorie existe déjà",
+  "SUB_CATEGORY_NAME_REQUIRED": "Le nom de la sous-catégorie est requis",
+  "SUBCATEGORY_NOT_FOUND": "Sous-catégorie introuvable",
+  "SUB_CATEGORY_EXISTS": "La sous-catégorie existe déjà",
+  "SUB_CATEGORY_NOT_FOUND": "Sous-catégorie introuvable"
+}

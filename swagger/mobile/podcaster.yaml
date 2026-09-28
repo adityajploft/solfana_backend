@@ -1,0 +1,73 @@
+paths:
+
+  /api/mobile/podcaster/profile/{podcasterId}:
+    get:
+      tags:
+        - Podcaster
+      summary: Get podcaster profile
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: podcasterId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 9eaf8700-6eca-4f2e-a673-371b85635150
+
+      responses:
+        '200':
+          description: Podcaster profile fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    $ref: '../schemas/podcaster.yaml#/PodcasterProfile'
+
+  /api/mobile/podcaster/toggle-follow:
+    post:
+      tags:
+        - Podcaster
+      summary: Follow or unfollow a podcaster
+      security:
+        - BearerAuth: []
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/podcaster.yaml#/ToggleFollowRequest'
+
+      responses:
+        '200':
+          description: Follow status updated successfully
+
+  /api/mobile/podcaster/followed-podcasters:
+    get:
+      tags:
+        - Podcaster
+      summary: Get followed podcasters
+      security:
+        - BearerAuth: []
+
+      responses:
+        '200':
+          description: Followed podcasters fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '../schemas/podcaster.yaml#/PodcasterSummary'

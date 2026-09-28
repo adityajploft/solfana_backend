@@ -1,0 +1,12 @@
+{
+  "PERMISSION_LIST": "Autorisations récupérées avec succès",
+  "PERMISSION_CREATED": "Autorisations créées avec succès",
+  "PERMISSION_DELETED": "Autorisation supprimée avec succès",
+  "PERMISSION_NOT_FOUND": "Autorisation introuvable",
+  "PERMISSION_ASSIGNED": "Cette autorisation est attribuée à un rôle et ne peut pas être supprimée",
+  "PERMISSION_ALREADY_EXISTS": "L’autorisation existe déjà",
+  "PERMISSION_CREATE_FAILED": "Échec de la création des autorisations",
+  "PERMISSION_DELETE_FAILED": "Échec de la suppression de l’autorisation",
+  "PERMISSION_LIST_FAILED": "Échec de la récupération des autorisations",
+  "INVALID_ID": "Identifiant de permission invalide"
+}

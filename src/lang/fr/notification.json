@@ -1,0 +1,54 @@
+{
+  "SETTINGS_FETCHED": "Paramètres de notification récupérés avec succès",
+  "SETTINGS_UPDATED": "Paramètres de notification mis à jour avec succès",
+  "SETTINGS_RESET": "Paramètres de notification réinitialisés par défaut",
+  "INVALID_NOTIFICATION_KEY": "Clé de notification invalide",
+  "VALUE_MUST_BE_BOOLEAN": "La valeur doit être booléenne",
+  "INVALID_REQUEST_BODY": "Corps de requête invalide",
+
+  "CATEGORY_LISTENING_CONTENT": "Écoute et mises à jour du contenu",
+  "CATEGORY_PERSONALIZED": "Recommandations personnalisées",
+  "CATEGORY_ACTIVITY_LIBRARY": "Activité et bibliothèque",
+  "CATEGORY_SUBSCRIPTION": "Abonnement et compte",
+  "CATEGORY_DOWNLOADS": "Téléchargements (utilisateurs premium)",
+  "CATEGORY_SYSTEM_UPDATES": "Système et mises à jour de l’application",
+
+  "NOTIFICATION_NEW_RELEASES": "Nouvelles sorties et contenu mis en avant",
+  "DESC_NEW_RELEASES": "Découvrez les nouveaux podcasts et livres audio ajoutés.",
+
+  "NOTIFICATION_EDITORIAL_PICKS": "Sélections éditoriales et playlists",
+  "DESC_EDITORIAL_PICKS": "Mises à jour des playlists sélectionnées et recommandations.",
+
+  "NOTIFICATION_RECOMMENDED": "Recommandé pour vous",
+  "DESC_RECOMMENDED": "Suggestions de contenu basées sur vos centres d’intérêt et votre activité d’écoute.",
+
+  "NOTIFICATION_CONTINUE_LISTENING": "Rappels pour reprendre l’écoute",
+  "DESC_CONTINUE_LISTENING": "Reprenez là où vous vous êtes arrêté.",
+
+  "NOTIFICATION_FAVORITES": "Mises à jour des favoris",
+  "DESC_FAVORITES": "Alertes lorsque votre contenu enregistré est mis à jour ou enrichi.",
+
+  "NOTIFICATION_PLAYLIST": "Activité des playlists",
+  "DESC_PLAYLIST": "Notifications concernant les changements ou la disponibilité des playlists.",
+
+  "NOTIFICATION_SUBSCRIPTION_STATUS": "Statut de l’abonnement",
+  "DESC_SUBSCRIPTION_STATUS": "Rappels de renouvellement, alertes d’expiration et confirmations d’abonnement.",
+
+  "NOTIFICATION_PAYMENT": "Mises à jour de paiement et facturation",
+  "DESC_PAYMENT": "Notifications de paiement réussi, échoué ou relancé.",
+
+  "NOTIFICATION_ACCOUNT": "Alertes d’activité du compte",
+  "DESC_ACCOUNT": "Connexion depuis un nouvel appareil ou changements de session.",
+
+  "NOTIFICATION_DOWNLOAD_COMPLETED": "Téléchargement terminé",
+  "DESC_DOWNLOAD_COMPLETED": "Notification lorsque le contenu hors ligne est prêt.",
+
+  "NOTIFICATION_DOWNLOAD_FAILED": "Échec du téléchargement",
+  "DESC_DOWNLOAD_FAILED": "Alertes en cas de téléchargement interrompu ou échoué.",
+
+  "NOTIFICATION_APP_UPDATES": "Mises à jour de l’application et maintenance",
+  "DESC_APP_UPDATES": "Informations importantes sur le service et maintenances programmées.",
+
+  "NOTIFICATION_SECURITY_POLICY": "Sécurité et mises à jour des politiques",
+  "DESC_SECURITY_POLICY": "Modifications des conditions, de la confidentialité ou des politiques de la plateforme."
+}

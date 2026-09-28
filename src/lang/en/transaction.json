@@ -1,0 +1,5 @@
+{
+    "TRANSACTION_LIST_FETCHED": "Transaction list fetched successfully.",
+    "TRANSACTION_NOT_FOUND": "Transaction not found.",
+    "TRANSACTION_DETAIL_FETCHED": "Transaction details fetched successfully."
+}

@@ -1,0 +1,63 @@
+paths:
+
+  /api/mobile/album/{albumId}/tracks:
+    get:
+      tags:
+        - Track
+      summary: Get track list by album ID
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: albumId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: caf907e5-63eb-485e-8d01-89257f6e7928
+
+      responses:
+        '200':
+          description: Track list fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '../schemas/track.yaml#/Track'
+
+  /api/mobile/tracks/detail/{trackId}:
+    get:
+      tags:
+        - Track
+      summary: Get track details by ID
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: trackId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 77a73095-fd0e-470b-8454-197edd08a005
+
+      responses:
+        '200':
+          description: Track details fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    $ref: '../schemas/track.yaml#/TrackDetail'

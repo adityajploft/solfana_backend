@@ -1,0 +1,12 @@
+{
+  "PROFILE_FETCHED": "Profil récupéré avec succès",
+  "PROFILE_UPDATED": "Profil mis à jour avec succès",
+  "PASSWORD_CHANGED": "Mot de passe modifié avec succès",
+  "USER_NOT_FOUND": "Utilisateur introuvable",
+  "PHONE_EXISTS": "Le numéro de téléphone existe déjà",
+  "CURRENT_PASSWORD_INCORRECT": "Le mot de passe actuel est incorrect",
+  "PASSWORD_MISMATCH": "Les mots de passe ne correspondent pas",
+  "INVALID_IMAGE_FILE": "Seuls les fichiers image sont autorisés",
+  "EMAIL_ROLE_UPDATE_FORBIDDEN": "Vous n’êtes pas autorisé à modifier votre e-mail ou votre rôle",
+  "PASSWORD_SAME_AS_OLD": "Le nouveau mot de passe ne peut pas être identique au mot de passe actuel."
+}

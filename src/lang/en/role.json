@@ -1,0 +1,12 @@
+{
+  "ROLE_LIST": "Roles fetched successfully",
+  "ROLE_DETAIL": "Role fetched successfully",
+  "ROLE_CREATED": "Role created successfully",
+  "ROLE_UPDATED": "Role updated successfully",
+  "ROLE_DELETED": "Role deleted successfully",
+  "INVALID_ID": "Invalid role id",
+  "ROLE_EXISTS": "Role already exists",
+  "ROLE_NOT_FOUND": "Role not found",
+  "INVALID_PERMISSIONS": "One or more permissions are invalid",
+  "ROLE_IN_USE": "Role is assigned to users and cannot be deleted"
+}

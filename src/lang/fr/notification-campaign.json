@@ -1,0 +1,9 @@
+{
+    "NOTIFICATIONCAMPAIGN_CREATED": "Campagne de notification créée avec succès.",
+    "NOTIFICATIONCAMPAIGN_LIST": "Campagnes de notification récupérées avec succès.",
+    "NOTIFICATIONCAMPAIGN_DETAIL": "Détails de la campagne de notification récupérés avec succès.",
+    "NOTIFICATIONCAMPAIGN_UPDATED": "Campagne de notification mise à jour avec succès.",
+    "NOTIFICATIONCAMPAIGN_DELETED": "Campagne de notification supprimée avec succès.",
+    "NOTIFICATIONCAMPAIGN_NOT_FOUND": "Campagne de notification introuvable.",
+    "NOTIFICATIONCAMPAIGN_STATUS_CHANGE": "Le statut de la campagne de notification a été modifié avec succès."
+}

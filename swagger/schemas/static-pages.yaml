@@ -1,0 +1,16 @@
+BecomePodcasterRequest:
+  type: object
+
+  required:
+    - status
+    - email
+
+  properties:
+    status:
+      type: boolean
+      example: true
+
+    email:
+      type: string
+      format: email
+      example: vicky@gmail.com

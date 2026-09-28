@@ -1,0 +1,53 @@
+{
+  "SETTINGS_FETCHED": "Notification settings fetched successfully",
+  "SETTINGS_UPDATED": "Notification settings updated successfully",
+  "SETTINGS_RESET": "Notification settings reset to default",
+  "INVALID_NOTIFICATION_KEY": "Invalid notification key",
+  "VALUE_MUST_BE_BOOLEAN": "Value must be boolean",
+  "INVALID_REQUEST_BODY": "Invalid request body",
+
+  
+  "CATEGORY_LISTENING_CONTENT": "Listening & Content Updates",
+  "CATEGORY_PERSONALIZED": "Personalized Recommendations",
+  "CATEGORY_ACTIVITY_LIBRARY": "Activity & Library",
+  "CATEGORY_SUBSCRIPTION": "Subscription & Account",
+  "CATEGORY_DOWNLOADS": "Downloads (Premium Users)",
+  "CATEGORY_SYSTEM_UPDATES": "System & App Updates",
+  "NOTIFICATION_NEW_RELEASES": "New releases & featured content",
+  "DESC_NEW_RELEASES": "Discover newly added podcasts and audiobooks.",
+  "NOTIFICATION_EDITORIAL_PICKS": "Editorial picks & playlists",
+  "DESC_EDITORIAL_PICKS": "Updates from curated playlists and recommendations.",
+  "NOTIFICATION_RECOMMENDED": "Recommended for you",
+  "DESC_RECOMMENDED": "Content suggestions based on your interests and listening activity.",
+  "NOTIFICATION_CONTINUE_LISTENING": "Continue listening reminders",
+  "DESC_CONTINUE_LISTENING": "Pick up where you left off.",
+  "NOTIFICATION_FAVORITES": "Favorites updates",
+  "DESC_FAVORITES": "Alerts when your saved content is updated or expanded.",
+  "NOTIFICATION_PLAYLIST": "Playlist activity",
+  "DESC_PLAYLIST": "Notifications about playlist changes or availability.",
+  "NOTIFICATION_SUBSCRIPTION_STATUS": "Subscription status",
+  "DESC_SUBSCRIPTION_STATUS": "Renewal reminders, expiry alerts, and plan confirmations.",
+  "NOTIFICATION_PAYMENT": "Payment & billing updates",
+  "DESC_PAYMENT": "Payment success, failure, or retry notifications.",
+  "NOTIFICATION_ACCOUNT": "Account activity alerts",
+  "DESC_ACCOUNT": "Login from a new device or session changes.",
+  "NOTIFICATION_DOWNLOAD_COMPLETED": "Download completed",
+  "DESC_DOWNLOAD_COMPLETED": "Notifies when offline content is ready.",
+  "NOTIFICATION_DOWNLOAD_FAILED": "Download failed",
+  "DESC_DOWNLOAD_FAILED": "Alerts for interrupted or failed downloads.",
+  "NOTIFICATION_APP_UPDATES": "App updates & maintenance",
+  "DESC_APP_UPDATES": "Important service updates and scheduled maintenance notices.",
+  "NOTIFICATION_SECURITY_POLICY": "Security & policy updates",
+  "DESC_SECURITY_POLICY": "Changes to terms, privacy, or platform policies.",
+
+
+
+  "NOTIFICATION_CREATED_AND_SENT" : "La notification push a été créée et envoyée avec succès.",
+  "NOTIFICATION_DRAFT_CREATED" : "La notification push a été créée comme brouillon avec succès.",
+  "PUSH_NOTIFICATION_UPDATE_SUCCESS" : "La notification push a été mise à jour avec succès.",
+  "PUSH_NOTIFICATION_DELETE_SUCCESS" : "La notification push a été supprimée avec succès.",
+
+  "NOTIFICATION_NOT_FOUND" : "La notification est introuvable",
+  "NOTIFICATION_ALREADY_SENT" : "La notification a déjà été envoyée",
+  "NO_RECIPIENTS_FOUND" : "Aucun destinataire trouvé"
+}

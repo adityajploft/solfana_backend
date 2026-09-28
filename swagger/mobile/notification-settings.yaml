@@ -1,0 +1,49 @@
+paths:
+
+  /api/mobile/notification-settings:
+    get:
+      tags:
+        - Notification Settings
+      summary: Get User Notification Settings
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Notification settings retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    $ref: '../schemas/notification-settings.yaml#/NotificationSettings'
+
+    put:
+      tags:
+        - Notification Settings
+      summary: Update Notification Settings
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/notification-settings.yaml#/UpdateNotificationSettingsRequest'
+      responses:
+        '200':
+          description: Notification settings updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Notification settings updated successfully

@@ -1,0 +1,369 @@
+openapi: 3.0.0
+
+info:
+  title: Solfana Mobile API
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3003
+    description: Local
+
+  - url: https://staging-api.solfana.app
+    description: Staging
+
+tags:
+  - name: Mobile Auth
+    description: Mobile Auth APIs
+  
+  - name: Dashboard
+    description: Mobile Dashboard APIs
+
+  - name: Notification Settings
+    description: Mobile Notification Settings APIs
+  
+  - name: Static Pages
+    description: Static pages and application settings APIs
+  
+  - name: Category
+    description: Category, Genre, Podcast and Audiobook APIs
+  
+  - name: Album
+    description: Album APIs
+
+  - name: Track
+    description: Album Tracks APIs
+  
+  - name: Playlist
+    description: User Playlist APIs
+  
+  - name: Podcaster
+    description: Podcaster Profile and Follow APIs
+  
+  - name: Report Content
+    description: Report content related APIs
+
+  - name: Library
+    description: User library, favorites, likes and saved content APIs
+  
+  - name: Track Analytics
+    description: Track listening, playback queue, and advertisement reward APIs
+  
+  - name: Subscription
+    description: Subscription and payment related APIs
+  
+  - name: Payment
+    description: Payment and subscription transaction APIs
+
+  - name: Notifications
+    description: User notification management APIs
+  
+  - name: Common
+    description: Common configuration, advertisements and application settings APIs
+
+paths:
+
+  /api/mobile/auth/login/email:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1login~1email'
+
+  /api/mobile/auth/login/verify-otp:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1login~1verify-otp'
+
+  /api/mobile/auth/login:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1login'
+
+  /api/mobile/auth/signup/phone:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1signup~1phone'
+
+  /api/mobile/auth/signup/create-password:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1signup~1create-password'
+
+  /api/mobile/auth/forgot-password/email:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1forgot-password~1email'
+
+  /api/mobile/auth/forgot-password/verify-otp:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1forgot-password~1verify-otp'
+
+  /api/mobile/auth/reset-password:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1reset-password'
+
+  /api/mobile/auth/me:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1me'
+
+  /api/mobile/auth/update-profile:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1update-profile'
+
+  /api/mobile/auth/change-password:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1change-password'
+
+  /api/mobile/auth/user/language:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1user~1language'
+
+  /api/mobile/auth/logout:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1logout'
+
+  /api/mobile/interests:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1interests'
+
+  /api/mobile/auth/user/interests:
+    $ref: './mobile/auth.yaml#/paths/~1api~1mobile~1auth~1user~1interests'
+  
+  /api/mobile/dashboard:
+    $ref: './mobile/dashboard.yaml#/paths/~1api~1mobile~1dashboard'
+
+  /api/mobile/dashboard/podcasters/all:
+    $ref: './mobile/dashboard.yaml#/paths/~1api~1mobile~1dashboard~1podcasters~1all'
+
+  /api/mobile/dashboard/best-podcasts/all:
+    $ref: './mobile/dashboard.yaml#/paths/~1api~1mobile~1dashboard~1best-podcasts~1all'
+  
+  /api/mobile/dashboard/audiobooks/all:
+    $ref: './mobile/dashboard.yaml#/paths/~1api~1mobile~1dashboard~1audiobooks~1all'
+
+  /api/mobile/dashboard/recommended-for-you/all:
+    $ref: './mobile/dashboard.yaml#/paths/~1api~1mobile~1dashboard~1recommended-for-you~1all'
+  
+  /api/mobile/dashboard/genres/all:
+    $ref: './mobile/dashboard.yaml#/paths/~1api~1mobile~1dashboard~1genres~1all'
+
+  /api/mobile/notification-settings:
+    $ref: './mobile/notification-settings.yaml#/paths/~1api~1mobile~1notification-settings'
+
+  /api/mobile/static-pages/settings:
+    $ref: './mobile/static-pages.yaml#/paths/~1api~1mobile~1static-pages~1settings'
+
+  /api/mobile/static-pages/support-email:
+    $ref: './mobile/static-pages.yaml#/paths/~1api~1mobile~1static-pages~1support-email'
+
+  /api/mobile/static-pages/become-podcaster:
+    $ref: './mobile/static-pages.yaml#/paths/~1api~1mobile~1static-pages~1become-podcaster'
+
+  /api/mobile/static-pages/delete-account:
+    $ref: './mobile/static-pages.yaml#/paths/~1api~1mobile~1static-pages~1delete-account'
+  
+  /api/mobile/category/search:
+    $ref: './mobile/category.yaml#/paths/~1api~1mobile~1category~1search'
+  
+  /api/mobile/category/audiobooks:
+    $ref: './mobile/category.yaml#/paths/~1api~1mobile~1category~1audiobooks'
+  
+  /api/mobile/category/podcasts:
+    $ref: './mobile/category.yaml#/paths/~1api~1mobile~1category~1podcasts'
+  
+  /api/mobile/category/genres:
+    $ref: './mobile/category.yaml#/paths/~1api~1mobile~1category~1genres'
+  
+  /api/mobile/category/genres-children/{genreId}:
+    $ref: './mobile/category.yaml#/paths/~1api~1mobile~1category~1genres-children~1{genreId}'
+
+  /api/mobile/album/{albumId}:
+    $ref: './mobile/album.yaml#/paths/~1api~1mobile~1album~1{albumId}'
+
+  /api/mobile/album/{albumId}/tracks:
+    $ref: './mobile/track.yaml#/paths/~1api~1mobile~1album~1{albumId}~1tracks'
+
+  /api/mobile/tracks/detail/{trackId}:
+    $ref: './mobile/track.yaml#/paths/~1api~1mobile~1tracks~1detail~1{trackId}'
+
+  /api/mobile/playlist:
+    $ref: './mobile/playlist.yaml#/paths/~1api~1mobile~1playlist'
+
+  /api/mobile/playlist/{playlistId}:
+    $ref: './mobile/playlist.yaml#/paths/~1api~1mobile~1playlist~1{playlistId}'
+
+  /api/mobile/playlist/{playlistId}/tracks:
+    $ref: './mobile/playlist.yaml#/paths/~1api~1mobile~1playlist~1{playlistId}~1tracks'
+
+  /api/mobile/playlist/{playlistId}/tracks/{trackId}:
+    $ref: './mobile/playlist.yaml#/paths/~1api~1mobile~1playlist~1{playlistId}~1tracks~1{trackId}'
+
+  /api/mobile/podcaster/profile/{podcasterId}:
+    $ref: './mobile/podcaster.yaml#/paths/~1api~1mobile~1podcaster~1profile~1{podcasterId}'
+
+  /api/mobile/podcaster/toggle-follow:
+    $ref: './mobile/podcaster.yaml#/paths/~1api~1mobile~1podcaster~1toggle-follow'
+
+  /api/mobile/podcaster/followed-podcasters:
+    $ref: './mobile/podcaster.yaml#/paths/~1api~1mobile~1podcaster~1followed-podcasters'
+  
+  /api/mobile/report-content:
+    $ref: './mobile/report-content.yaml#/paths/~1api~1mobile~1report-content'
+  
+  /api/mobile/library:
+    $ref: './mobile/library.yaml#/paths/~1api~1mobile~1library'
+
+  /api/mobile/library/favorite:
+    $ref: './mobile/library.yaml#/paths/~1api~1mobile~1library~1favorite'
+
+  /api/mobile/library/favorites:
+    $ref: './mobile/library.yaml#/paths/~1api~1mobile~1library~1favorites'
+
+  /api/mobile/library/like:
+    $ref: './mobile/library.yaml#/paths/~1api~1mobile~1library~1like'
+
+  /api/mobile/library/likes:
+    $ref: './mobile/library.yaml#/paths/~1api~1mobile~1library~1likes'
+
+  /api/mobile/track-analytics/listen/start:
+    $ref: './mobile/track-analytics.yaml#/paths/~1api~1mobile~1track-analytics~1listen~1start'
+
+  /api/mobile/track-analytics/listen/progress:
+    $ref: './mobile/track-analytics.yaml#/paths/~1api~1mobile~1track-analytics~1listen~1progress'
+
+  /api/mobile/track-analytics/listen/status:
+    $ref: './mobile/track-analytics.yaml#/paths/~1api~1mobile~1track-analytics~1listen~1status'
+
+  /api/mobile/track-analytics/ads/reward:
+    $ref: './mobile/track-analytics.yaml#/paths/~1api~1mobile~1track-analytics~1ads~1reward'
+
+  /api/mobile/track-analytics/play:
+    $ref: './mobile/track-analytics.yaml#/paths/~1api~1mobile~1track-analytics~1play'
+
+  /api/mobile/track-analytics/queue/next:
+    $ref: './mobile/track-analytics.yaml#/paths/~1api~1mobile~1track-analytics~1queue~1next'
+
+  /api/mobile/track-analytics/queue/prev:
+    $ref: './mobile/track-analytics.yaml#/paths/~1api~1mobile~1track-analytics~1queue~1prev'
+  
+  /api/mobile/subscription/plans:
+    $ref: './mobile/subscription.yaml#/paths/~1api~1mobile~1subscription~1plans'
+
+  /api/mobile/subscription/history:
+    $ref: './mobile/subscription.yaml#/paths/~1api~1mobile~1subscription~1history'
+  
+  /api/mobile/payment/initiate:
+    $ref: './mobile/payment.yaml#/paths/~1api~1mobile~1payment~1initiate'
+
+  /api/mobile/payment/verify:
+    $ref: './mobile/payment.yaml#/paths/~1api~1mobile~1payment~1verify'
+  
+  /api/mobile/notifications:
+    $ref: './mobile/notifications.yaml#/paths/~1api~1mobile~1notifications'
+
+  /api/mobile/notifications/{notificationId}/mark-read:
+    $ref: './mobile/notifications.yaml#/paths/~1api~1mobile~1notifications~1{notificationId}~1mark-read'
+
+  /api/mobile/notifications/mark-read-all:
+    $ref: './mobile/notifications.yaml#/paths/~1api~1mobile~1notifications~1mark-read-all'
+  
+  /api/mobile/common/google-admob-settings:
+    $ref: './mobile/common.yaml#/paths/~1api~1mobile~1common~1google-admob-settings'
+
+  /api/mobile/common/internal-audio-ads:
+    $ref: './mobile/common.yaml#/paths/~1api~1mobile~1common~1internal-audio-ads'
+
+  /api/mobile/common/banner-ads:
+    $ref: './mobile/common.yaml#/paths/~1api~1mobile~1common~1banner-ads'
+
+components:
+
+  schemas:
+
+    LoginEmailRequest:
+      $ref: './schemas/auth.yaml#/LoginEmailRequest'
+
+    VerifyOtpRequest:
+      $ref: './schemas/auth.yaml#/VerifyOtpRequest'
+
+    LoginPasswordRequest:
+      $ref: './schemas/auth.yaml#/LoginPasswordRequest'
+
+    AddPhoneNumberRequest:
+      $ref: './schemas/auth.yaml#/AddPhoneNumberRequest'
+
+    CreatePasswordRequest:
+      $ref: './schemas/auth.yaml#/CreatePasswordRequest'
+
+    ForgotPasswordEmailRequest:
+      $ref: './schemas/auth.yaml#/ForgotPasswordEmailRequest'
+
+    ForgotPasswordVerifyOtpRequest:
+      $ref: './schemas/auth.yaml#/ForgotPasswordVerifyOtpRequest'
+
+    ResetPasswordRequest:
+      $ref: './schemas/auth.yaml#/ResetPasswordRequest'
+
+    UpdateProfileRequest:
+      $ref: './schemas/auth.yaml#/UpdateProfileRequest'
+
+    ChangePasswordRequest:
+      $ref: './schemas/auth.yaml#/ChangePasswordRequest'
+
+    UpdateLanguageRequest:
+      $ref: './schemas/auth.yaml#/UpdateLanguageRequest'
+      
+    SaveUserInterestsRequest:
+      $ref: './schemas/auth.yaml#/SaveUserInterestsRequest'
+
+    NotificationSettings:
+      $ref: './schemas/notification-settings.yaml#/NotificationSettings'
+
+    UpdateNotificationSettingsRequest:
+      $ref: './schemas/notification-settings.yaml#/UpdateNotificationSettingsRequest'
+
+    BecomePodcasterRequest:
+      $ref: './schemas/static-pages.yaml#/BecomePodcasterRequest'
+
+    AlbumDetailsResponse:
+      $ref: './schemas/album.yaml#/AlbumDetailsResponse'
+
+    Track:
+      $ref: './schemas/track.yaml#/Track'
+
+    TrackDetail:
+      $ref: './schemas/track.yaml#/TrackDetail'
+    
+    CreatePlaylistRequest:
+      $ref: './schemas/playlist.yaml#/CreatePlaylistRequest'
+
+    AddPlaylistTracksRequest:
+      $ref: './schemas/playlist.yaml#/AddPlaylistTracksRequest'
+
+    ToggleFollowRequest:
+      $ref: './schemas/podcaster.yaml#/ToggleFollowRequest'
+
+    PodcasterSummary:
+      $ref: './schemas/podcaster.yaml#/PodcasterSummary'
+
+    PodcasterProfile:
+      $ref: './schemas/podcaster.yaml#/PodcasterProfile'
+    
+    ReportContentRequest:
+      $ref: './schemas/report-content.yaml#/ReportContentRequest'
+
+    LibraryEntityRequest:
+      $ref: './schemas/library.yaml#/LibraryEntityRequest'
+
+    LikeDislikeRequest:
+      $ref: './schemas/library.yaml#/LikeDislikeRequest'
+    
+    StartListenRequest:
+      $ref: './schemas/track-analytics.yaml#/StartListenRequest'
+
+    ListenProgressRequest:
+      $ref: './schemas/track-analytics.yaml#/ListenProgressRequest'
+
+    PlayTrackRequest:
+      $ref: './schemas/track-analytics.yaml#/PlayTrackRequest'
+    
+    SubscriptionPlan:
+      $ref: './schemas/subscription.yaml#/SubscriptionPlan'
+
+    SubscriptionHistory:
+      $ref: './schemas/subscription.yaml#/SubscriptionHistory'
+    
+    InitiatePaymentRequest:
+      $ref: './schemas/payment.yaml#/InitiatePaymentRequest'
+    
+    GoogleAdmobSettings:
+      $ref: './components/schemas.yaml#/GoogleAdmobSettings'
+
+    AudioAd:
+      $ref: './components/schemas.yaml#/AudioAd'
+
+    BannerAd:
+      $ref: './components/schemas.yaml#/BannerAd'
+
+  securitySchemes:
+
+    BearerAuth:
+      $ref: './components/security.yaml#/BearerAuth'

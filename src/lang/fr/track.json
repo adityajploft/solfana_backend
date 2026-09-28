@@ -1,0 +1,52 @@
+{
+  "TRACK_CREATED": "Piste créée avec succès.",
+  "TRACK_LIST": "Liste des pistes récupérée avec succès.",
+  "TRACK_DETAIL": "Détails de la piste récupérés avec succès.",
+  "TRACK_UPDATED": "Piste mise à jour avec succès.",
+  "TRACK_DELETED": "Piste supprimée avec succès.",
+
+  "TRACK_NOT_FOUND": "Piste introuvable.",
+  "TRACK_NUMBER_ALREADY_EXISTS": "Le numéro de piste existe déjà dans cet album.",
+  "ALBUM_NOT_FOUND": "Album introuvable.",
+  "AUDIO_NOT_FOUND": "Fichier audio introuvable.",
+  "LANGUAGE_NOT_FOUND": "Langue introuvable.",
+
+  "MP3_FILE_REQUIRED": "Le fichier MP3 est requis.",
+  "ONLY_MP3_ALLOWED": "Seuls les fichiers MP3 sont autorisés.",
+  "FILE_TOO_LARGE": "La taille du fichier dépasse la limite de 150 Mo.",
+  "CDN_UPLOAD_FAILED": "Échec du téléchargement du fichier vers le CDN.",
+
+  "TRACK_PUBLISHED_SUCCESS": "Piste publiée avec succès.",
+  "TRACK_SCHEDULED_SUCCESS": "Piste programmée avec succès.",
+  "TRACK_SCHEDULE_DELETED": "La programmation de la piste a été supprimée avec succès.",
+  "REQUEST_ALREADY_SENT": "La demande de publication a déjà été envoyée.",
+  "ONLY_VERIFIED_PODCASTER_CAN_SCHEDULE": "Seuls les podcasteurs vérifiés peuvent programmer des pistes.",
+  "TRACK_NOT_SCHEDULED": "La piste n’est pas programmée.",
+
+  "PUBLISH_REQUEST_SENT_TO_ADMIN": "La demande de publication a été envoyée à l’administrateur.",
+  "INVALID_IMAGE_FORMAT": "Format d’image invalide. Seuls les formats JPEG, JPG et PNG sont autorisés.",
+  "IMAGE_TOO_LARGE": "La taille de l’image dépasse la limite de 5 Mo.",
+
+  "ALBUM_ID_REQUIRED": "L'identifiant de l'album est requis.",
+  "INVALID_ALBUM_ID": "Identifiant d'album invalide.",
+
+  "AUDIO_LIBRARY_ID_REQUIRED": "L'identifiant de la bibliothèque audio est requis.",
+  "INVALID_AUDIO_LIBRARY_ID": "Identifiant de la bibliothèque audio invalide.",
+  "AUDIO_LIBRARY_NOT_FOUND": "Bibliothèque audio introuvable.",
+
+  "TITLE_REQUIRED": "Le titre de la piste est requis.",
+  "INVALID_TITLE": "Titre de la piste invalide.",
+
+  "INVALID_DESCRIPTION": "Description de la piste invalide.",
+
+  "DURATION_REQUIRED": "La durée de la piste est requise.",
+  "INVALID_DURATION": "Durée de la piste invalide.",
+
+  "TRACK_NUMBER_REQUIRED": "Le numéro de piste est requis.",
+  "INVALID_TRACK_NUMBER": "Numéro de piste invalide.",
+  "TRACK_NUMBER_EXISTS": "Ce numéro de piste existe déjà dans cet album.",
+
+  "INVALID_STATUS": "Statut de la piste invalide.",
+
+  "UPDATE_DATA_REQUIRED": "Les données de mise à jour sont requises."
+}

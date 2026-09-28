@@ -1,0 +1,48 @@
+Track:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+
+    title:
+      type: string
+
+    duration:
+      type: integer
+      example: 320
+
+    thumbnail:
+      type: string
+      nullable: true
+
+TrackDetail:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+
+    title:
+      type: string
+
+    description:
+      type: string
+
+    duration:
+      type: integer
+
+    audioUrl:
+      type: string
+
+    thumbnail:
+      type: string
+      nullable: true
+
+    albumId:
+      type: string
+      format: uuid
+
+    createdAt:
+      type: string
+      format: date-time

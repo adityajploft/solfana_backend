@@ -1,0 +1,60 @@
+{
+    "BANNER_CREATED": "Banner created successfully.",
+    "BANNER_LIST": "Banners fetched successfully.",
+    "BANNER_DETAIL": "Banner details fetched successfully.",
+    "BANNER_UPDATED": "Banner updated successfully.",
+    "BANNER_DELETED": "Banner deleted successfully.",
+    "BANNER_IMAGE_FILE_REQUIRED": "Banner Image is required.",
+    "BANNER_STATUS_CHANGE": "The banner status has been successfully changed.",
+    "BANNER_NOT_FOUND": "Banner not found.",
+
+
+    "TITLE_REQUIRED": "Title is required.",
+    "TITLE_STRING_INVALID": "Title must be a string.",
+
+    "PLACEMENTS_REQUIRED": "At least one placement is required.",
+    "PLACEMENTS_STRING_INVALID": "Placements must be a string.",
+    "PLACEMENTS_INVALID_JSON": "Placements must be valid JSON.",
+
+    "SCREEN_REQUIRED": "Screen is required.",
+    "SCREEN_STRING_INVALID": "Screen must be a string.",
+
+    "POSITION_REQUIRED": "Position is required.",
+    "POSITION_STRING_INVALID": "Position must be a string.",
+
+    "START_DATE_INVALID": "The start date provided is invalid.",
+    "START_DATE_STRING_INVALID": "start_date must be a string.",
+
+    "END_DATE_INVALID": "The end date provided is invalid.",
+    "END_DATE_STRING_INVALID": "end_date must be a string.",
+
+    "END_DATE_AFTER_START_DATE": "The end date must be later than the start date.",
+
+    "EXTERNAL_URL_REQUIRED": "external_url is required when action_type is EXTERNAL_URL.",
+    "EXTERNAL_URL_INVALID": "external_url must be a valid URL.",
+    "EXTERNAL_URL_STRING_INVALID": "external_url must be a string.",
+
+    "INTERNAL_SCREEN_REQUIRED": "internal_screen is required when action_type is INTERNAL_SCREEN.",
+    "INTERNAL_SCREEN_STRING_INVALID": "internal_screen must be a string.",
+
+    "IS_ACTIVE_INVALID": "is_active must be true or false.",
+    "IS_ACTIVE_STRING_INVALID": "is_active must be a string.",
+
+    "BANNER_IMAGE_STRING_INVALID": "banner_image must be a string.",
+
+    "TITLE_ALREADY_TAKEN": "A banner with this title already exists.",
+
+    "BANNER_TYPE_REQUIRED": "Banner type is required.",
+    "BANNER_TYPE_STRING_INVALID": "Banner type must be a valid text value.",
+    "BANNER_TYPE_MAX_LENGTH": "Banner type cannot exceed 100 characters.",
+
+    "BANNER_EVENT_DATE_STRING_INVALID": "Displayed date must be a valid text value.",
+    "BANNER_EVENT_DATE_INVALID": "Displayed date must be a valid date.",
+
+    "BANNER_EVENT_DATE_AFTER_START_DATE": "The displayed date cannot be earlier than the banner start date.",
+    "BANNER_EVENT_DATE_BEFORE_END_DATE": "The displayed date cannot be later than the banner end date.",
+
+    "LOCATION_REQUIRED": "Location is required.",
+    "LOCATION_STRING_INVALID": "Location must be a valid string.",
+    "LOCATION_MAX_LENGTH": "Location cannot exceed 255 characters."
+}

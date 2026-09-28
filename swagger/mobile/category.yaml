@@ -1,0 +1,124 @@
+paths:
+
+  /api/mobile/category/search:
+    get:
+      tags:
+        - Category
+      summary: Search categories, podcasts, and audiobooks
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: keyword
+          in: query
+          required: true
+          schema:
+            type: string
+          example: tech
+      responses:
+        '200':
+          description: Search results fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+
+  /api/mobile/category/audiobooks:
+    get:
+      tags:
+        - Category
+      summary: Get all audiobook categories
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Audiobook categories fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '../components/schemas.yaml#/Category'
+
+  /api/mobile/category/podcasts:
+    get:
+      tags:
+        - Category
+      summary: Get all podcast categories
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Podcast categories fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '../components/schemas.yaml#/Category'
+
+  /api/mobile/category/genres:
+    get:
+      tags:
+        - Category
+      summary: Get all genres
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Genres fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '../components/schemas.yaml#/Genre'
+
+  /api/mobile/category/genres-children/{genreId}:
+    get:
+      tags:
+        - Category
+      summary: Get subcategories by genre ID
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: genreId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 133d5fe7-fbe2-46ff-91cc-3e2d230dcd84
+      responses:
+        '200':
+          description: Genre children fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '../components/schemas.yaml#/GenreChild'

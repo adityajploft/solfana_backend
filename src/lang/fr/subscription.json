@@ -1,0 +1,21 @@
+{
+    "SUBSCRIPTION_PLAN_CREATED": "Le plan d'abonnement a été créé avec succès",
+    "SUBSCRIPTION_PLAN_ALREADY_EXISTS": "Un plan d'abonnement avec ce nom ou code existe déjà",
+    "FREE_PLAN_PRICE_MUST_BE_ZERO": "Le prix du plan GRATUIT doit être zéro",
+    "DURATION_REQUIRED_FOR_PREMIUM": "La durée est requise pour le plan PREMIUM",
+    "SUBSCRIPTION_PLAN_LIST": "Liste des plans d’abonnement récupérée avec succès",
+    "SUBSCRIPTION_PLAN_NOT_FOUND": "Plan d’abonnement introuvable",
+    "SUBSCRIPTION_PLAN_DETAILS": "Détails du plan d’abonnement récupérés avec succès",
+    "SUBSCRIPTION_PLAN_UPDATED": "Plan d’abonnement mis à jour avec succès",
+    "SUBSCRIPTION_PLAN_DELETED": "Plan d’abonnement supprimé avec succès",
+    "CUSTOMER_NOT_FOUND": "Client non trouvé",
+    "PLAN_NOT_FOUND": "Plan d'abonnement non trouvé",
+    "SUBSCRIPTION_PLAN_ASSIGNED": "Plan d'abonnement attribué avec succès",
+    "SUBSCRIPTION_REVOKED": "Abonnement révoqué avec succès",
+    "ACTIVE_SUBSCRIPTION_NOT_FOUND": "Aucun abonnement actif trouvé pour le client",
+    "SUBSCRIPTION_PLAN_STATUS_UPDATED": "Statut du plan d'abonnement mis à jour avec succès",
+    "FREE_PLAN_CANNOT_BE_ASSIGNED_MANUALLY": "Le plan GRATUIT ne peut pas être attribué manuellement",
+    "SUBSCRIPTION_HISTORY_FETCHED": "Historique des abonnements récupéré avec succès",
+    "SUBSCRIPTION_NOT_FOUND": "Abonnement introuvable",
+    "SUBSCRIPTION_CANCELED_SUCCESS": "Votre abonnement a été annulé avec succès. Vous pouvez continuer à utiliser votre forfait jusqu'à la fin de la période de facturation en cours."
+}

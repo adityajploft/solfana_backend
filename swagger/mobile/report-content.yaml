@@ -1,0 +1,51 @@
+paths:
+
+  /api/mobile/report-content:
+    get:
+      tags:
+        - Report Content
+      summary: Get all report reasons
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Report reasons fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: string
+                      example: inappropriate_content
+
+    post:
+      tags:
+        - Report Content
+      summary: Report album, track, or podcaster content
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/report-content.yaml#/ReportContentRequest'
+      responses:
+        '200':
+          description: Content reported successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Report submitted successfully

@@ -1,0 +1,1244 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+} 
+
+model Role {
+  id          Int              @id @default(autoincrement())
+  name        String           @unique
+  permissions RolePermission[]
+  users       User[]
+
+  @@map("roles") // Maps to "roles" table in database
+}
+
+model Permission {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  module    String
+  action    String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  roles RolePermission[]
+
+  @@unique([module, action])
+  @@map("permissions")
+}
+
+model RolePermission {
+  roleId       Int
+  permissionId Int
+  permission   Permission @relation(fields: [permissionId], references: [id])
+  role         Role       @relation(fields: [roleId], references: [id])
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions") // Maps to "role_permissions" table in database
+}
+
+model Language {
+  id        Int     @id @default(autoincrement())
+  lang      String  @unique // en, fr, hi
+  name      String // English, French, Hindi
+  isActive  Boolean @default(true)
+  isDefault Boolean @default(false)
+
+  categoryTranslations         CategoryTranslation[]
+  customers                    Customer[]
+  users                        User[]
+
+  @@map("languages")
+}
+
+model User {
+  id       String  @id @default(uuid())
+  email    String  @unique
+  password String?
+
+  name         String?
+  phone        String? @unique
+  profileImage String?
+
+  roleId       Int
+  languageId   Int     @default(1)
+  isActive     Boolean @default(true)
+  tokenVersion Int     @default(0)
+
+  fcmToken String?
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  role             Role              @relation(fields: [roleId], references: [id])
+  language         Language          @relation(fields: [languageId], references: [id])
+  podcasterProfile PodcasterProfile?
+
+  albums         Album[]
+  followers      CustomerFollowPodcaster[]
+  audioLibraries AudioLibrary[]            @relation("UserAudioLibraries")
+
+  albumPublishRequests AlbumPublishRequest[]
+
+  emailNotifications  EmailNotification[]
+  pushNotifications   PushNotification[]
+
+  resetToken       String?
+  resetTokenExpiry DateTime?
+
+  @@map("users")
+}
+
+model Customer {
+  id           String  @id @default(uuid())
+  name         String?
+  email        String
+  phone        String?
+  password     String?
+  profileImage String?
+  languageId   Int     @default(1)
+  fcmToken     String?
+
+  fedapayCustomerId    String?   @unique @map("fedapay_customer_id") 
+
+  language  Language  @relation(fields: [languageId], references: [id])
+  isActive  Boolean   @default(true)
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  sessions                CustomerSession[]
+  interests               CustomerInterest[]
+  notificationSettings    CustomerNotificationSetting[]
+  playlists               Playlist[]
+  followedPodcasters      CustomerFollowPodcaster[]
+  reports                 ContentReport[]
+  becomePodcasterInterest BecomePodcasterInterest?
+  dailyUsages             CustomerDailyUsage[]
+  recentlyPlayed          RecentlyPlayed[]
+  favorites               Favorite[]
+  likes                   Like[]
+  libraries               Library[]
+  subscriptions           Subscription[]
+  transactions            Transaction[]
+  trackListenSessions TrackListenSession[]
+  userAnalytics       UserAnalytics[]
+
+
+  @@index([email])
+  @@index([phone])
+
+  @@map("customers") // Maps to "customers" table in database
+}
+
+model CustomerOtp {
+  id        String   @id @default(uuid())
+  email     String
+  otp       String
+  expiresAt DateTime
+
+  @@map("customer_otp") // Maps to "customer_otp" table in database
+}
+
+model CustomerSession {
+  id         String   @id @default(uuid())
+  customerId String
+  deviceId   String
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  customer Customer @relation(fields: [customerId], references: [id])
+
+  @@map("customer_session") // Maps to "customer_session" table in database
+}
+
+enum ContentType {
+  PODCAST
+  AUDIOBOOK
+}
+
+model Category {
+  id       String      @id @default(uuid())
+  name     String
+  type     ContentType?
+  parentId String? // self reference
+  isActive Boolean     @default(true)
+
+  level Int @default(1)
+
+  bgColor1  String?   @map("bg_color_1")
+  bgColor2  String?   @map("bg_color_2")
+
+  gradientText String? @map("gradient_text")
+
+  position  Int?   @default(0)
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  parent       Category?             @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children     Category[]            @relation("CategoryHierarchy")
+  customers    CustomerInterest[]
+  translations CategoryTranslation[]
+  albums       AlbumCategory[]
+
+  @@index([parentId])
+  @@index([position])
+
+  @@map("categories")
+}
+
+model CategoryTranslation {
+  id         String @id @default(uuid())
+  categoryId String
+  languageId Int
+  name       String
+
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  language Language @relation(fields: [languageId], references: [id])
+
+  @@unique([categoryId, languageId])
+  @@index([languageId])
+  @@index([categoryId])
+  @@map("category_translations")
+}
+
+model CustomerInterest {
+  id          String @id @default(uuid())
+  customer_id String
+  category_id String
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  customer Customer @relation(fields: [customer_id], references: [id])
+  category Category @relation(fields: [category_id], references: [id])
+
+  @@unique([customer_id, category_id])
+  @@map("customer_interests")
+}
+
+model PodcasterProfile {
+  id     String @id @default(uuid())
+  userId String @unique
+
+  bio        String?
+  avatar     String?
+  isVerified Boolean @default(false)
+
+  approvedBy String?
+  approvedAt DateTime?
+
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("podcaster_profile")
+}
+
+model CustomerNotificationSetting {
+  id              String  @id @default(uuid())
+  customerId      String
+  notificationKey String
+  isEnabled       Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@unique([customerId, notificationKey])
+  @@map("customer_notification_settings")
+}
+
+model Setting {
+  id          Int     @id @default(autoincrement())
+  key         String  @unique
+  value       String? @db.Text
+  type        String  @default("text") // text, json, email, phone, url
+  displayName String? @map("display_name")
+  group       String  @default("content")
+  status      Boolean @default(true)
+  position    Int     @default(0)
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("settings")
+}
+
+model BecomePodcasterInterest {
+  id         String  @id @default(uuid())
+  customerId String  @unique
+  email      String
+  status     Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@map("become_podcaster_interests")
+}
+
+enum UploadType {
+  PROFILE_IMAGE
+  CATEGORY_IMAGE
+  PODCAST_COVER
+  PODCAST_AUDIO
+  AUDIOBOOK_COVER
+  AUDIOBOOK_AUDIO
+  GALLERY_IMAGE
+  DOCUMENT
+  BANNER
+  COVER_IMAGE
+  THUMBNAIL
+  AUDIO_URL
+  CATEGORY_FEATURED_IMAGE
+}
+
+enum EntityType {
+  USER
+  CUSTOMER
+  CATEGORY
+  PODCAST
+  PODCAST_EPISODE
+  AUDIOBOOK
+  AUDIOBOOK_CHAPTER
+  GALLERY
+  GENERAL
+  ALBUM
+  AUDIO_AD
+}
+
+model Upload {
+  id String @id @default(uuid())
+
+  // File details
+  filename     String
+  originalName String
+  filepath     String
+  mimetype     String
+  size         Int
+
+  // Type and entity association
+  uploadType UploadType
+  entityType EntityType
+  entityId   String // This will be the category ID
+
+  // CDN details (optional)
+  cdnUrl      String?
+  storagePath String?
+
+  // Metadata
+  alt         String?
+  description String?
+
+  // Soft delete
+  isActive  Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  albums    Album[]
+
+  @@index([entityType, entityId])
+  @@index([uploadType])
+  @@index([entityType, entityId, uploadType])
+  @@map("uploads")
+}
+
+enum AlbumType {
+  PODCAST
+  AUDIOBOOK
+}
+
+enum AlbumStatus {
+  DRAFT
+  PENDING_APPROVAL
+  SCHEDULED
+  PUBLISHED
+  REJECTED
+}
+
+enum PublishRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Album {
+  id            String      @id @default(uuid())
+  slug          String      @unique
+  type          AlbumType
+  podcasterId   String
+  coverImageId  String?
+
+  title         String
+  description   String?
+
+  totalDuration Int         @default(0)
+  status        AlbumStatus @default(DRAFT)
+
+  isExplicit      Boolean     @default(false)
+
+  metaKeywords    String?
+
+  publishAt   DateTime?
+  publishedAt DateTime?
+
+  createdBy String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  podcaster    User               @relation(fields: [podcasterId], references: [id])
+  coverImage   Upload?            @relation(fields: [coverImageId], references: [id])
+
+  tracks          Track[]
+  publishRequests AlbumPublishRequest[]
+  categories      AlbumCategory[]
+
+  @@index([podcasterId])
+  @@index([deletedAt])
+  @@index([slug])
+}
+
+model AlbumPublishRequest {
+  id String @id @default(uuid())
+
+  albumId String?
+  trackId String?
+
+  requestedBy String
+
+  status PublishRequestStatus @default(PENDING)
+
+  createdAt  DateTime  @default(now())
+  actionAt   DateTime?
+  approvedBy String?
+
+  album Album? @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  track Track? @relation(fields: [trackId], references: [id], onDelete: Cascade)
+  user  User   @relation(fields: [requestedBy], references: [id])
+
+  @@index([albumId])
+  @@index([trackId])
+}
+
+enum AudioStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum FileUploadStatus {
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model AudioLibrary {
+  id String @id @default(uuid())
+
+  // File Info
+  originalName   String? @map("original_name")
+  storedFileName String? @unique @map("stored_file_name")
+
+  // BunnyCDN
+  cdnUrl   String? @map("cdn_url")
+  cdnPath  String? @map("cdn_path")
+  fileHash String? @unique
+
+  // File Metadata
+  fileSize        Int?    @map("file_size") // in bytes
+  durationSeconds Int?    @map("duration_seconds")
+  mimeType        String? @map("mime_type")
+  bitrate         Int?
+  sampleRate      Int?    @map("sample_rate")
+
+  // Business Status
+  status AudioStatus @default(ACTIVE)
+
+  // Upload Processing Status
+  fileUploadStatus FileUploadStatus @default(PROCESSING) @map("file_upload_status")
+
+  // User
+  createdById String
+  createdBy   User   @relation("UserAudioLibraries", fields: [createdById], references: [id])
+
+  // Timestamps
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  tracks Track[]
+
+  @@index([status])
+  @@index([fileUploadStatus])
+  @@map("audio_library")
+}
+
+enum TrackStatus {
+  DRAFT
+  PENDING_APPROVAL
+  SCHEDULED
+  PUBLISHED
+  REJECTED
+}
+
+model Track {
+  id              String      @id @default(uuid())
+  albumId         String
+  audioLibraryId  String
+
+  title           String
+  description     String?
+
+  durationSeconds Int
+  trackNumber     Int
+  status          TrackStatus @default(DRAFT)
+
+  isExplicit      Boolean     @default(false)
+
+  coverImage String?
+
+  scheduledAt DateTime?
+  publishedAt DateTime?
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  album           Album                 @relation(fields: [albumId], references: [id])
+  audioLibrary    AudioLibrary          @relation(fields: [audioLibraryId], references: [id])
+  publishRequests AlbumPublishRequest[]
+  playlistTracks  PlaylistTrack[]
+  recentlyPlayed  RecentlyPlayed[]
+
+  trackListenSessions TrackListenSession[]
+  trackAnalytics      TrackAnalytics[]
+
+  @@index([albumId])
+  @@index([deletedAt])
+}
+
+model Playlist {
+  id         String    @id @default(uuid())
+  customerId String
+  title      String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  tracks PlaylistTrack[]
+
+  @@map("playlists")
+}
+
+model PlaylistTrack {
+  id         String   @id @default(uuid())
+  playlistId String
+  trackId    String
+  createdAt  DateTime @default(now())
+
+  playlist Playlist @relation(fields: [playlistId], references: [id], onDelete: Cascade)
+  track    Track    @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@unique([playlistId, trackId])
+  @@map("playlist_tracks")
+}
+
+model CustomerFollowPodcaster {
+  id          String   @id @default(uuid())
+  customerId  String   @map("customer_id")
+  podcasterId String   @map("podcaster_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  customer  Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  podcaster User     @relation(fields: [podcasterId], references: [id], onDelete: Cascade)
+
+  @@unique([customerId, podcasterId])
+  @@index([customerId])
+  @@index([podcasterId])
+  @@map("customer_follow_podcaster")
+}
+
+enum ContentReportEntityType {
+  ALBUM
+  TRACK
+  PODCASTER
+}
+model ContentReport {
+  id            String   @id @default(uuid())
+  customerId    String   @map("customer_id")
+  entityType ContentReportEntityType @map("entity_type")
+  entityId   String      @map("entity_id")
+  reasonContent String   @map("reason_content")
+  customReason  String?  @map("custom_reason")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@map("content_reports")
+}
+
+model AlbumCategory {
+  id         String @id @default(uuid())
+  albumId    String
+  categoryId String
+
+  album    Album    @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([albumId, categoryId])
+  @@index([albumId])
+  @@index([categoryId])
+}
+
+enum FavoriteEntityType {
+  ALBUM
+  TRACK
+}
+
+model CustomerDailyUsage {
+  id                  String    @id @default(uuid())
+  customerId          String    @map("customer_id")
+  date                DateTime  @db.Date
+  listenedSeconds     Int       @default(0) @map("listened_seconds")
+  rewardedSeconds     Int       @default(0) @map("rewarded_seconds")
+  totalAllowedSeconds Int?      @map("total_allowed_seconds")
+  adsWatchedCount     Int       @default(0) @map("ads_watched_count")
+  lastAdWatchedAt     DateTime? @map("last_ad_watched_at")
+  lastListenedAt      DateTime? @map("last_listened_at")
+  isLimitReached      Boolean   @default(false) @map("is_limit_reached")
+  createdAt           DateTime  @default(now()) @map("created_at")
+  updatedAt           DateTime  @updatedAt @map("updated_at")
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@unique([customerId, date])
+  @@index([customerId, date])
+  @@map("customer_daily_usages")
+}
+
+model RecentlyPlayed {
+  id              String   @id @default(uuid())
+  customerId      String   @map("customer_id")
+  trackId         String   @map("track_id")
+  lastPlayedAt    DateTime @map("last_played_at")
+  lastPositionSec Int      @map("last_position_sec")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  track    Track    @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@unique([customerId, trackId])
+  @@index([customerId, lastPlayedAt])
+  @@map("recently_played_tracks")
+}
+
+model Favorite {
+  id         String             @id @default(uuid())
+  customerId String             @map("customer_id")
+  entityType FavoriteEntityType @map("entity_type")
+  entityId   String             @map("entity_id")
+  createdAt  DateTime           @default(now()) @map("created_at")
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@unique([customerId, entityType, entityId])
+  @@index([customerId])
+  @@map("favorites")
+}
+
+enum LikeType {
+  LIKE
+  DISLIKE
+}
+
+model Like {
+  id         String             @id @default(uuid())
+  customerId String             @map("customer_id")
+  entityType FavoriteEntityType @map("entity_type")
+  entityId   String             @map("entity_id")
+  type       LikeType           @default(LIKE)
+  createdAt  DateTime           @default(now()) @map("created_at")
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@unique([customerId, entityType, entityId])
+  @@index([customerId])
+  @@map("likes")
+}
+
+model Library {
+  id         String             @id @default(uuid())
+  customerId String             @map("customer_id")
+  entityType FavoriteEntityType @map("entity_type")
+  entityId   String             @map("entity_id")
+  createdAt  DateTime           @default(now()) @map("created_at")
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@unique([customerId, entityType, entityId])
+  @@index([customerId])
+  @@map("libraries")
+}
+
+
+
+enum SubscriptionStatus {
+  ACTIVE
+  EXPIRED
+  CANCELLED
+  PENDING
+}
+
+enum SubscriptionSource {
+  MANUAL
+  PAYMENT
+  PROMO
+}
+
+enum PaymentGateway {
+  FEDAPAY
+  MOOV
+  MTN
+  WAVE
+  CARD
+}
+
+enum TransactionStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  REFUNDED
+}
+
+enum SubscriptionCode {
+  FREE
+  PREMIUM
+}
+
+model SubscriptionPlan {
+  id              String   @id @default(uuid())
+
+  name            String
+  code            SubscriptionCode
+  description     String?
+
+  price           Decimal  @db.Decimal(10, 2)
+  currency        String   @db.VarChar(10)
+
+  durationDays    Int?     @map("duration_days")
+
+  features        Json
+
+  isActive        Boolean  @default(true) @map("is_active")
+
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+  deletedAt       DateTime? @map("deleted_at")
+
+  subscriptions   Subscription[]
+  transactions    Transaction[]
+
+  @@map("subscription_plans")
+}
+
+// -----------------------------------------
+
+model Subscription {
+  id                  String   @id @default(uuid())
+
+  customerId          String   @map("customer_id")
+  planId              String   @map("plan_id")
+
+  startsAt            DateTime @map("starts_at")
+  endsAt              DateTime? @map("ends_at")
+
+  status              SubscriptionStatus
+  source              SubscriptionSource
+  note                String?
+
+  isAutoRenew         Boolean  @default(false) @map("is_auto_renew")
+
+  assignedByAdminId   String?  @map("assigned_by_admin_id")
+
+  planData            Json     @map("plan_data")
+  userData            Json     @map("user_data")
+
+  createdAt           DateTime @default(now()) @map("created_at")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  plan                SubscriptionPlan @relation(fields: [planId], references: [id])
+  transactions        Transaction[]
+  customer Customer @relation(fields: [customerId], references: [id])
+
+  @@index([customerId, status])
+  @@map("subscriptions")
+}
+
+// -----------------------------------------
+
+model Transaction {
+  id                    String   @id @default(uuid())
+
+  customerId            String   @map("customer_id")
+
+  subscriptionId        String?  @map("subscription_id")
+  planId                String   @map("plan_id")
+
+  paymentGateway        PaymentGateway @map("payment_gateway")
+  transactionId         String   @map("transaction_id")
+
+  paymentMethod         String?  @map("payment_method")
+
+  amount                Decimal  @db.Decimal(10, 2)
+  currency              String   @db.VarChar(10)
+
+  status                TransactionStatus
+
+  paidAt                DateTime? @map("paid_at")
+
+  rawResponse           Json?     @map("raw_response")
+
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  subscription          Subscription?     @relation(fields: [subscriptionId], references: [id])
+  plan                  SubscriptionPlan  @relation(fields: [planId], references: [id])
+  customer              Customer @relation(fields: [customerId], references: [id])
+
+  @@unique([paymentGateway, transactionId])
+  @@index([customerId])
+  @@map("transactions")
+}
+
+model TrackListenSession {
+  id                String   @id @default(uuid()) @map("id")
+  customerId        String   @map("customer_id")
+  trackId           String   @map("track_id")
+
+  source            String?  @map("source")
+  sourceId          String?  @map("source_id")
+
+  startedAt         DateTime @map("started_at")
+  lastActiveAt      DateTime? @map("last_active_at")
+  endedAt           DateTime? @map("ended_at")
+
+  totalListenedSec  Int      @default(0) @map("total_listened_sec")
+  completionRate    Float?   @map("completion_rate")
+
+  isCompleted       Boolean  @default(false) @map("is_completed")
+
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  customer          Customer @relation(fields: [customerId], references: [id])
+  track             Track    @relation(fields: [trackId], references: [id])
+
+  @@index([customerId], map: "idx_tls_customer_id")
+  @@index([trackId], map: "idx_tls_track_id")
+  @@index([startedAt], map: "idx_tls_started_at")
+
+  @@map("track_listen_sessions")
+}
+
+
+model TrackAnalytics {
+  id                String   @id @default(uuid()) @map("id")
+  trackId           String   @map("track_id")
+  date              DateTime @db.Date @map("date")
+
+  totalPlays        Int      @default(0) @map("total_plays")
+  uniqueListeners   Int      @default(0) @map("unique_listeners")
+  totalListenSec    Int      @default(0) @map("total_listen_sec")
+
+  avgCompletionRate Float?   @map("avg_completion_rate")
+
+  track             Track    @relation(fields: [trackId], references: [id])
+
+  @@unique([trackId, date], map: "uniq_track_date")
+  @@map("track_analytics")
+}
+
+
+model UserAnalytics {
+  id               String   @id @default(uuid()) @map("id")
+  customerId       String   @map("customer_id")
+  date             DateTime @db.Date @map("date")
+
+  totalListenSec   Int      @default(0) @map("total_listen_sec")
+  totalTracks      Int      @default(0) @map("total_tracks")
+
+  adsWatched       Int      @default(0) @map("ads_watched")
+
+  customer         Customer @relation(fields: [customerId], references: [id])
+
+  @@unique([customerId, date], map: "uniq_user_date")
+  @@map("user_analytics")
+}
+
+
+model SubscriptionConversion {
+  id              String   @id @default(uuid())
+
+  customerId          String   @map("customer_id")
+
+  fromPlan        SubscriptionCode @map("previous_plan")
+  toPlan          SubscriptionCode @map("new_plan")
+
+  fromPlanId      String?  @map("from_plan_id")
+  toPlanId        String   @map("to_plan_id")
+
+  conversionDate  DateTime @map("conversion_date")
+  source          SubscriptionSource?
+
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@index([customerId, conversionDate])
+
+  @@map("subscription_conversions")
+}
+
+
+enum NotificationReceiverType {
+  CUSTOMER
+  USER
+}
+
+enum NotificationClickTypeType {
+  NONE
+  OPEN_APP
+  OPEN_SCREEN
+  OPEN_URL
+}
+
+model Notification {
+  id            String   @id @default(uuid())
+
+  title         String
+  description   String
+
+  senderId      String?  @map("send_id")
+  receiverId    String   @map("receiver_id")
+
+  receiverType  NotificationReceiverType        @map("receiver_type")
+  senderType    NotificationReceiverType?       @map("sender_type")
+
+  notificationKey String    @map("notification_key")
+
+  moduleType    String?    @map("module_type")
+  moduleId      String?    @map("module_id")
+
+  isClickable   Boolean   @default(false)  @map("is_clickable")
+  clickAction   NotificationClickTypeType?  @default(NONE) @map("click_action")
+  clickValue    String?   @map("click_value")
+
+  data          Json?     // extra payload (deep linking etc.)
+
+  isRead        Boolean   @default(false)    @map("is_read")
+  readAt        DateTime?  @map("read_at")
+
+  createdAt     DateTime  @default(now())    @map("created_at")
+  updatedAt     DateTime  @updatedAt         @map("updated_at")
+
+  @@index([receiverId, receiverType])
+
+  @@map("notifications")
+}
+
+enum AudioAdPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum AudioAdUserType {
+  ALL
+  FREE_USER
+  PREMIUM_USER
+}
+
+model AudioAd {
+  id                String   @id @default(uuid())
+
+  title             String
+  description       String?
+
+  audioUrl          String    @map("audio_url")
+  audioMetadata     Json      @map("audio_metadata")
+  thumbnail         String?
+
+  placements        Json
+
+  skipEnabled       Boolean  @default(false)     @map("skip_enabled")
+  skipAfterSec      Int?          @map("skip_after_sec")
+
+  userType          AudioAdUserType   @default(ALL)  @map("user_type")
+
+  startDate         DateTime? @db.Date @map("start_date")
+  endDate           DateTime? @db.Date @map("end_date")
+
+  isActive          Boolean  @default(true)   @map("is_active")
+
+  priority          AudioAdPriority   @default(MEDIUM) // LOW | MEDIUM | HIGH
+
+  createdAt         DateTime @default(now())      @map("created_at")
+  updatedAt         DateTime @updatedAt           @map("updated_at")
+
+  @@index([isActive])
+  @@index([userType])
+
+  @@map("audio_ads")
+}
+
+enum BannerActionType {
+  NONE
+  EXTERNAL_URL
+  INTERNAL_SCREEN
+}
+
+enum BannerUserType {
+  ALL
+  FREE_USER
+  PREMIUM_USER
+}
+
+enum BannerPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model Banner {
+  id                String              @id @default(uuid())
+
+  title             String
+  bannerImage       String              @map("banner_image")
+  bannerType        String              @map("banner_type")
+
+  actionType        BannerActionType    @default(NONE)          @map("action_type")
+  externalUrl       String?                                     @map("external_url")
+  internalScreen    String?                                     @map("internal_screen")
+
+  userType          BannerUserType      @default(ALL)           @map("user_type")
+
+  startDate         DateTime?           @db.Date                @map("start_date")
+  endDate           DateTime?           @db.Date                @map("end_date")
+
+  displayedDate     DateTime?           @db.Date                @map("displayed_date")
+
+  priority          BannerPriority      @default(MEDIUM)
+
+  location          String?                                     @map("location")
+
+  isActive          Boolean             @default(true)          @map("is_active")
+
+  placements        Json
+
+  createdAt         DateTime            @default(now())         @map("created_at")
+  updatedAt         DateTime            @updatedAt              @map("updated_at")
+
+  @@map("banners")
+}
+
+
+enum CampaignType {
+  AUDIO
+  BANNER
+  MIXED
+}
+
+enum CampaignUserType {
+  ALL
+  FREE_USER
+  PREMIUM_USER
+}
+
+enum CampaignPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum CampaignStatus {
+  ACTIVE
+  PAUSED
+  COMPLETED
+}
+
+model AdCampaign {
+  id                  String                    @id @default(uuid())
+
+  name                String
+  description         String?
+
+  campaignType        CampaignType                                          @map("campaign_type")
+
+  userType            CampaignUserType          @default(ALL)               @map("user_type")
+
+  startDate           DateTime?                 @db.Date                    @map("start_date")
+  endDate             DateTime?                 @db.Date                    @map("end_date")
+
+  priority            CampaignPriority          @default(MEDIUM)
+
+  adsData             Json                      @map("ads_data")   // { audio: ["uuid1", "uuid2"], banners: ["uuid1", "uuid2"] }
+
+  status              CampaignStatus            @default(ACTIVE)
+
+  createdAt           DateTime            @default(now())     @map("created_at")
+  updatedAt           DateTime            @updatedAt          @map("updated_at")
+
+  @@map("ad_campaigns")
+}
+
+enum TargetType {
+  FREE_USERS
+  PREMIUM_USERS
+  ALL
+  SPECIFIC_USERS
+}
+
+model EmailNotification {
+  id             String   @id @default(uuid())
+
+  subject        String
+  body           String   @map("email_body")
+
+  senderId       String  @map("sender_id")
+
+  targetType     TargetType @map("target_type")
+
+  // Used only when targetType = SPECIFIC
+  recipientIds   String[] @default([]) @map("recipient_ids")
+
+  attachmentUrls String[] @default([]) @map("attachment_urls")
+
+  isSent         Boolean  @default(false) @map("is_sent")
+  sentAt         DateTime?
+
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt      @map("updated_at")
+
+  sender         User @relation(fields: [senderId], references: [id])
+
+  @@index([targetType])
+  @@index([isSent])
+  @@map("email_notifications")
+}
+
+enum PushNotificationActionType {
+  OPEN_APP
+  OPEN_SCREEN
+}
+
+model PushNotification {
+  id                String   @id @default(uuid())
+
+  title             String
+  message           String
+
+  senderId          String  @map("sender_id")
+
+  targetType        TargetType @map("target_type")
+
+  // Used only when targetType = SPECIFIC
+  recipientIds      String[] @default([]) @map("recipient_ids")
+
+  actionType        PushNotificationActionType    @default(OPEN_APP)          @map("action_type")
+
+  // Used only when actionType = OPEN_SCREEN
+  internalScreen    String?   @map("internal_screen")
+
+  isSent            Boolean  @default(false) @map("is_sent")
+  sentAt            DateTime?
+
+  createdAt         DateTime @default(now())  @map("created_at")
+  updatedAt         DateTime @updatedAt       @map("updated_at")
+
+  sender            User @relation(fields: [senderId], references: [id])
+
+  @@index([targetType])
+  @@index([isSent])
+
+  @@map("push_notifications")
+}
+
+
+enum ChannelTypeEnums {
+  PUSH
+  EMAIL
+  BOTH
+}
+
+enum ScheduleTypeEnums {
+  ONETIME
+  RECURRING
+}
+
+enum RecurringOptionEnums {
+  DAILY
+  WEEKLY
+  MONTHLY
+}
+
+model NotificationCampaign {
+  id                String   @id @default(uuid())
+
+  name              String
+  description       String
+
+  channelType       ChannelTypeEnums   @map("channel_type")
+
+  // Used only when channelType = PUSH, BOTH
+  title             String?
+  message           String?
+
+  // Used only when channelType = EMAIL, BOTH
+  subject           String?
+  body              String?
+
+  startDate         DateTime?       @db.Date      @map("start_date")
+  endDate           DateTime?       @db.Date      @map("end_date")
+
+  scheduleType      ScheduleTypeEnums       @map("schedule_type")
+
+  // Used only when scheduleType = RECURRING
+  recurringOption   RecurringOptionEnums?    @map("recurring_option")
+
+  targetType        TargetType @map("target_type")
+
+  // Used only when targetType = SPECIFIC
+  recipientIds      String[] @default([]) @map("recipient_ids")
+
+  status            CampaignStatus            @default(ACTIVE)
+
+  lastRunAt DateTime? @map("last_run_at")
+
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt      @map("updated_at")
+
+  @@index([targetType])
+
+  @@map("notification_campaigns")
+}

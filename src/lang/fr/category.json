@@ -1,0 +1,34 @@
+{
+  "CATEGORY_CREATED": "Catégorie créée avec succès",
+  "CATEGORY_UPDATED": "Catégorie mise à jour avec succès",
+  "CATEGORY_DELETED": "Catégorie supprimée avec succès",
+  "CATEGORY_LIST": "Catégories récupérées avec succès",
+  "CATEGORY_DETAIL": "Détails de la catégorie récupérés",
+  "CATEGORY_EXISTS": "La catégorie existe déjà",
+  "CATEGORY_NOT_FOUND": "Catégorie introuvable",
+
+  "INTERESTS_FETCHED": "Centres d’intérêt récupérés avec succès",
+
+  "FETCHED": "Données récupérées avec succès",
+  "SEARCH_RESULTS_FETCHED": "Résultats de recherche récupérés avec succès",
+  "PODCAST_CATEGORIES_FETCHED": "Catégories de podcasts récupérées avec succès",
+  "AUDIOBOOK_CATEGORIES_FETCHED": "Catégories de livres audio récupérées avec succès",
+  "GENRES_FETCHED": "Genres récupérés avec succès",
+  "GENRE_CONTENT_FETCHED": "Contenu du genre récupéré avec succès",
+  "GENRE_NOT_FOUND": "Genre introuvable",
+
+  "CATEGORY_NAME_REQUIRED": "Le nom de la catégorie est requis",
+  "INVALID_CATEGORY_TYPE": "Type de catégorie invalide. Les valeurs autorisées sont PODCAST ou AUDIOBOOK",
+  "LEVEL_REQUIRED": "Le niveau doit être un entier positif",
+  "INVALID_TRANSLATIONS_JSON": "Format JSON des traductions invalide",
+  "TYPE_REQUIRED": "Le type est requis.",
+  "CATEGORY_ID_REQUIRED": "L’identifiant de catégorie est requis.",
+  "INVALID_CATEGORY": "Catégorie invalide. Seules les catégories parentes sont autorisées.",
+  "SUBCATEGORY_FETCHED": "Sous-catégories récupérées avec succès.",
+  "INVALID_TYPE": "Type invalide. Les valeurs autorisées sont PODCAST ou AUDIOBOOK.",
+  "CATEGORY_ALREADY_EXISTS": "Une catégorie avec le même nom existe déjà à ce niveau.",
+  "CDN_UPLOAD_FAILED": "Échec du téléchargement sur le CDN",
+
+  "INVALID_LEVEL": "Niveau invalide. Le niveau doit être un entier positif.",
+  "INVALID_PARENT_ID": "ID parent invalide. L'ID parent doit être une chaîne non vide ou null."
+}

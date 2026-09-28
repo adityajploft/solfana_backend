@@ -1,0 +1,154 @@
+paths:
+
+  /api/mobile/playlist:
+
+    post:
+      tags:
+        - Playlist
+      summary: Create playlist
+      security:
+        - BearerAuth: []
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/playlist.yaml#/CreatePlaylistRequest'
+
+      responses:
+        '201':
+          description: Playlist created successfully
+
+    get:
+      tags:
+        - Playlist
+      summary: List all playlists
+      security:
+        - BearerAuth: []
+
+      responses:
+        '200':
+          description: Playlist list fetched successfully
+
+  /api/mobile/playlist/{playlistId}:
+
+    get:
+      tags:
+        - Playlist
+      summary: Get playlist details
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: playlistId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+
+      responses:
+        '200':
+          description: Playlist details fetched successfully
+
+    delete:
+      tags:
+        - Playlist
+      summary: Delete playlist
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: playlistId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+
+      responses:
+        '200':
+          description: Playlist deleted successfully
+
+  /api/mobile/playlist/{playlistId}/tracks:
+
+    post:
+      tags:
+        - Playlist
+      summary: Add tracks to playlist
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: playlistId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/playlist.yaml#/AddPlaylistTracksRequest'
+
+      responses:
+        '200':
+          description: Tracks added successfully
+
+    get:
+      tags:
+        - Playlist
+      summary: List playlist tracks
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: playlistId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+
+      responses:
+        '200':
+          description: Playlist tracks fetched successfully
+
+  /api/mobile/playlist/{playlistId}/tracks/{trackId}:
+
+    delete:
+      tags:
+        - Playlist
+      summary: Remove track from playlist
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: playlistId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+
+        - name: trackId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+
+      responses:
+        '200':
+          description: Track removed successfully

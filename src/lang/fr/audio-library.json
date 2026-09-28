@@ -1,0 +1,20 @@
+{
+  "MP3_FILE_REQUIRED": "Le fichier MP3 est requis.",
+  "mp3_file_required": "Le fichier MP3 est requis.",
+  "ONLY_MP3_ALLOWED": "Seuls les fichiers MP3 sont autorisés.",
+  "only_mp3_allowed": "Seuls les fichiers MP3 sont autorisés.",
+  "file_too_large": "La taille du fichier ne doit pas dépasser 150 Mo.",
+  "CDN_UPLOAD_FAILED": "Échec du téléchargement du fichier vers le CDN.",
+  "cdn_upload_failed": "Échec du téléchargement du fichier vers le CDN.",
+  "AT_LEAST_ONE_AUDIO_REQUIRED": "Au moins un fichier audio est requis.",
+  "at_least_one_audio_required": "Au moins un fichier audio est requis.",
+  "AUDIO_ALREADY_EXISTS": "Le fichier audio existe déjà.",
+  "audio_already_exists": "Le fichier audio existe déjà.",
+  "AUDIO_CREATED": "Fichier audio créé avec succès.",
+  "AUDIO_LIST": "Liste des fichiers audio récupérée avec succès.",
+  "AUDIO_DETAIL": "Détails du fichier audio récupérés avec succès.",
+  "AUDIO_DELETED": "Fichier audio supprimé avec succès.",
+  "AUDIO_NOT_FOUND": "Fichier audio introuvable.",
+  "MAX_FILES_LIMIT": "Maximum 10 fichiers autorisés.",
+  "FILE_TOO_LARGE": "Le fichier dépasse la limite de 100 Mo."
+}

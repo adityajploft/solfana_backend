@@ -1,0 +1,11 @@
+{
+    "DASHBOARD_FETCHED": "Dashboard data fetched successfully.",
+    "PODCASTERS_FETCHED": "Podcasters fetched successfully.",
+    "BEST_PODCASTS_FETCHED": "Best podcasts fetched successfully.",
+    "AUDIOBOOKS_FETCHED": "Audiobooks fetched successfully.",
+    "RECOMMENDED_FETCHED": "Recommended content fetched successfully.",
+    "GENRES_FETCHED": "Genres fetched successfully.",
+    "RECENTLY_PLAYED_FETCHED": "Recently played content fetched successfully.",
+
+    "INVALID_TYPE": "Type must be either 'podcast' or 'audiobook'."
+}

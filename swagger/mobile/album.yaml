@@ -1,0 +1,34 @@
+paths:
+
+  /api/mobile/album/{albumId}:
+    get:
+      tags:
+        - Album
+      summary: Get album details
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: albumId
+          in: path
+          required: true
+          description: Album ID
+          schema:
+            type: string
+            format: uuid
+          example: e4a7fdd1-3922-4bfc-ac01-ffe55c143fa4
+
+      responses:
+        '200':
+          description: Album details fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+
+                  data:
+                    $ref: '../schemas/album.yaml#/AlbumDetailsResponse'

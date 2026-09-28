@@ -1,0 +1,17 @@
+{
+    "PLAN_ID_REQUIRED": "Plan ID is required.",
+    "INVALID_PLAN_ID": "Invalid Plan ID.",
+    "INVALID_PAYMENT_GATEWAY": "Invalid payment gateway.",
+    "PLAN_NOT_FOUND": "Plan not found.",
+    "FREE_PLAN_NOT_PAYABLE": "Free plan cannot be paid",
+    "INVALID_PLAN_DURATION": "Invalid plan duration.",
+    "TRANSACTION_ID_REQUIRED": "Transaction ID is required.",
+    "INVALID_TRANSACTION_ID": "Invalid Transaction ID.",
+    "TRANSACTION_NOT_FOUND": "Transaction not found.",
+    "PAYMENT_INITIATED": "Payment initiated successfully.",
+    "PAYMENT_STATUS_FETCHED": "Payment status fetched successfully.",
+    "WEBHOOK_PROCESSED": "Webhook processed successfully.",
+    "CUSTOMER_NOT_FOUND": "Customer not found.",
+    "PAYMENT_GATEWAY_ERROR": "An error occurred with the payment gateway.",
+    "ALREADY_SUBSCRIBED_PLAN": "You already have an active subscription for this plan"
+}

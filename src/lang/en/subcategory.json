@@ -1,0 +1,12 @@
+{
+  "SUBCATEGORY_CREATED": "Sub Category created successfully",
+  "SUBCATEGORY_UPDATED": "Sub Category updated successfully",
+  "SUBCATEGORY_DELETED": "Sub Category deleted successfully",
+  "SUBCATEGORY_LIST": "Sub Categories fetched successfully",
+  "SUBCATEGORY_DETAIL": "Sub Category details fetched",
+  "SUBCATEGORY_EXISTS": "Sub Category already exists",
+  "SUB_CATEGORY_NAME_REQUIRED": "Sub Category name required",
+  "SUBCATEGORY_NOT_FOUND": "Sub Category not found",
+  "SUB_CATEGORY_EXISTS": "Sub Category already exists",
+  "SUB_CATEGORY_NOT_FOUND": "Sub Category not found"
+}

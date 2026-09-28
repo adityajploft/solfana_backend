@@ -1,0 +1,10 @@
+{
+  "EMAIL_CREATED_AND_SENT" : "L'e-mail a été créé et envoyé avec succès.",
+  "EMAIL_DRAFT_CREATED" : "L'e-mail a été créé en tant que brouillon avec succès.",
+  "EMAIL_UPDATE_SUCCESS" : "L'e-mail a été mis à jour avec succès.",
+  "EMAIL_DELETE_SUCCESS" : "L'e-mail a été supprimé avec succès.",
+
+  "EMAIL_NOT_FOUND" : "L'e-mail est introuvable",
+  "EMAIL_ALREADY_SENT" : "L'e-mail a déjà été envoyé",
+  "NO_RECIPIENTS_FOUND" : "Aucun destinataire trouvé"
+}

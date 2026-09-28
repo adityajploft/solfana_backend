@@ -1,0 +1,29 @@
+ReportContentRequest:
+  type: object
+  required:
+    - entityId
+    - entityType
+    - reasonContent
+
+  properties:
+    entityId:
+      type: string
+      format: uuid
+      example: 5d41a914-4957-4951-9318-08dfc50deca4
+
+    entityType:
+      type: string
+      enum:
+        - ALBUM
+        - TRACK
+        - PODCASTER
+      example: ALBUM
+
+    reasonContent:
+      type: string
+      example: inappropriate_content
+
+    customReason:
+      type: string
+      nullable: true
+      example: Audio starts late after 10 second

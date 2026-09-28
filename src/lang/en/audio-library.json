@@ -1,0 +1,24 @@
+{
+
+
+    "MP3_FILE_REQUIRED": "MP3 file is required.",
+    "mp3_file_required": "MP3 file is required.",
+    "ONLY_MP3_ALLOWED": "Only MP3 files are allowed.",
+    "only_mp3_allowed": "Only MP3 files are allowed.",
+    "file_too_large": "File size must not exceed 150 MB.",
+    "CDN_UPLOAD_FAILED": "Failed to upload file to CDN.",
+    "cdn_upload_failed": "Failed to upload file to CDN.",
+    "AT_LEAST_ONE_AUDIO_REQUIRED": "At least one audio file is required.",
+    "at_least_one_audio_required": "At least one audio file is required.",
+    "AUDIO_ALREADY_EXISTS": "Audio file already exists.",
+    "audio_already_exists": "Audio file already exists.",
+    "AUDIO_CREATED": "Audio file created successfully.",
+    "AUDIO_LIST": "Audio list retrieved successfully.",
+    "AUDIO_DETAIL": "Audio details retrieved successfully.",
+    "AUDIO_DELETED": "Audio file deleted successfully.",
+    "AUDIO_NOT_FOUND": "Audio file not found.",
+    "MAX_FILES_LIMIT": "Maximum 10 files allowed.",
+    "FILE_TOO_LARGE": "File exceeds 100MB limit"
+
+
+}

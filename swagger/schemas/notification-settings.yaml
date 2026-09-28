@@ -1,0 +1,37 @@
+NotificationSettings:
+  type: object
+  properties:
+    security_policy:
+      type: boolean
+      example: true
+
+    new_episode_release:
+      type: boolean
+      example: true
+
+    recommendations:
+      type: boolean
+      example: false
+
+    promotions:
+      type: boolean
+      example: true
+
+UpdateNotificationSettingsRequest:
+  type: object
+  properties:
+    security_policy:
+      type: boolean
+      example: false
+
+    new_episode_release:
+      type: boolean
+      example: true
+
+    recommendations:
+      type: boolean
+      example: false
+
+    promotions:
+      type: boolean
+      example: true

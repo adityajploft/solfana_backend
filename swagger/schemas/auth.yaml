@@ -1,0 +1,215 @@
+LoginEmailRequest:
+
+  type: object
+
+  required:
+    - email
+
+  properties:
+
+    email:
+      type: string
+      format: email
+      example: test13@gmail.com
+
+VerifyOtpRequest:
+
+  type: object
+
+  required:
+    - email
+    - otp
+    - deviceId
+
+  properties:
+
+    email:
+      type: string
+      format: email
+
+    otp:
+      type: string
+      example: "123456"
+
+    deviceId:
+      type: string
+
+    firebaseToken:
+      type: string
+
+
+LoginPasswordRequest:
+
+  type: object
+
+  required:
+    - email
+    - password
+    - deviceId
+    - firebaseToken
+
+  properties:
+
+    email:
+      type: string
+      format: email
+
+    password:
+      type: string
+      example: "password123"
+
+    deviceId:
+      type: string
+
+    firebaseToken:
+      type: string
+
+
+AddPhoneNumberRequest:
+  type: object
+
+  required:
+    - phone_number
+
+  properties:
+
+    phone_number:
+      type: string
+      format: phone
+
+
+CreatePasswordRequest:
+  type: object
+  required:
+    - password
+    - confirmPassword
+  properties:
+    password:
+      type: string
+      example: password123
+
+    confirmPassword:
+      type: string
+      example: password123
+
+ForgotPasswordEmailRequest:
+  type: object
+  required:
+    - email
+  properties:
+    email:
+      type: string
+      format: email
+
+ForgotPasswordVerifyOtpRequest:
+  type: object
+  required:
+    - email
+    - otp
+  properties:
+    email:
+      type: string
+      format: email
+
+    otp:
+      type: string
+      example: "123456"
+
+ResetPasswordRequest:
+  type: object
+  required:
+    - email
+    - password
+    - confirmPassword
+  properties:
+    email:
+      type: string
+      format: email
+
+    password:
+      type: string
+      minLength: 8
+      example: newpassword123
+
+    confirmPassword:
+      type: string
+      minLength: 8
+      example: newpassword123
+
+
+UpdateProfileRequest:
+  type: object
+  required:
+    - name
+    - email
+    - phone
+
+  properties:
+    name:
+      type: string
+
+    email:
+      type: string
+      format: email
+
+    phone:
+      type: string
+
+    profileImage:
+      type: string
+      format: binary
+  
+
+ChangePasswordRequest:
+  type: object
+
+  required:
+    - oldPassword
+    - newPassword
+    - confirmPassword
+
+  properties:
+    oldPassword:
+      type: string
+      example: newPassword4561
+
+    newPassword:
+      type: string
+      example: newPassword45611
+
+    confirmPassword:
+      type: string
+      example: 
+      
+UpdateLanguageRequest:
+  type: object
+
+  required:
+    - language
+
+  properties:
+    language:
+      type: string
+      enum:
+        - en
+        - fr
+      example: en      
+
+
+SaveUserInterestsRequest:
+  type: object
+
+  required:
+    - interest_ids
+
+  properties:
+    interest_ids:
+      type: array
+      items:
+        type: string
+        format: uuid
+
+      example:
+        - 452405cd-c910-4c0f-b872-fc91f9e192f1
+
+

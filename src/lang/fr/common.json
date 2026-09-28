@@ -1,0 +1,51 @@
+{
+  "PASSWORD_MISMATCH": "Les mots de passe ne correspondent pas",
+  "VALIDATION_ERROR": "Échec de la validation",
+
+  "EN_TITLE_REQUIRED": "Le titre en anglais est requis",
+  "EN_CONTENT_REQUIRED": "Le contenu en anglais est requis",
+  "FR_TITLE_REQUIRED": "Le titre en français est requis",
+  "FR_CONTENT_REQUIRED": "Le contenu en français est requis",
+  "INVALID_CONTENT_KEY": "Clé de contenu invalide",
+  "CONTENT_NOT_FOUND": "Contenu introuvable",
+
+  "ABOUT_FETCHED": "Le contenu À propos de nous a été récupéré avec succès",
+  "ABOUT_UPDATED": "Le contenu À propos de nous a été mis à jour avec succès",
+  "TERMS_FETCHED": "Les conditions générales ont été récupérées avec succès",
+  "TERMS_UPDATED": "Les conditions générales ont été mises à jour avec succès",
+  "PRIVACY_FETCHED": "La politique de confidentialité a été récupérée avec succès",
+  "PRIVACY_UPDATED": "La politique de confidentialité a été mise à jour avec succès",
+
+  "SETTING_SUCCESS": "Les pages statiques ont été récupérées avec succès",
+  "USER_SETTINGS_FETCHED": "Les paramètres utilisateur ont été récupérés avec succès",
+  "SUPPORT_FETCHED": "Les coordonnées du support ont été récupérées avec succès",
+  "SUPPORT_UPDATED": "Les coordonnées du support ont été mises à jour avec succès",
+
+  "BECOME_PODCASTER_SAVED": "Le statut devenir podcaster a été enregistré avec succès",
+  "CUSTOMER_ID_REQUIRED": "L’identifiant du client est requis",
+  "INVALID_CUSTOMER_ID": "L’identifiant du client doit être un UUID valide",
+  "STATUS_REQUIRED": "Le statut est requis",
+  "STATUS_MUST_BE_BOOLEAN": "Le statut doit être vrai ou faux",
+
+  "INVALID_JSON_DATA": "Format de données JSON invalide",
+
+  "LANGUAGE_NOT_FOUND": "Langue introuvable.",
+  "DEFAULT_LANGUAGE_NOT_SET": "Langue par défaut non définie.",
+  "EMAIL_EXISTS": "L’email existe déjà.",
+
+   "SUBSCRIPTION_NAME_REQUIRED": "Le nom de l'abonnement est requis",
+    "INVALID_SUBSCRIPTION_CODE": "Code d'abonnement invalide",
+    "INVALID_PRICE": "Le prix doit être un nombre valide supérieur ou égal à zéro",
+    "CURRENCY_REQUIRED": "La devise est requise",
+    "INVALID_FEATURES_JSON": "Les fonctionnalités doivent être un objet JSON valide",
+    "INVALID_PLAN_ID": "L'identifiant du plan doit être un UUID valide",
+
+    "INVALID_REFERENCE_DATA": "Données de référence invalides fournies",
+    "UNIQUE_CONSTRAINT_VIOLATION": "Violation de contrainte unique",
+    "RECORD_NOT_FOUND": "Enregistrement non trouvé",
+    "DATABASE_ERROR": "Erreur de base de données",
+    "CUSTOMER_NOT_FOUND": "Client non trouvé",
+    "EMAIL_REQUIRED": "Email requis",
+    "INVALID_EMAIL": "Format d'email invalide",
+    "INVALID_INPUT": "Données d'entrée invalides"
+}

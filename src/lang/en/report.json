@@ -1,0 +1,8 @@
+{
+    "REPORT_REASONS_FETCHED": "Report reasons fetched successfully",
+    "CONTENT_REPORTED_SUCCESS": "Content reported successfully",
+    "REASON_REQUIRED": "Reason content is required",
+    "CUSTOM_REASON_REQUIRED": "Custom reason is required for Other",
+    "CONTENT_ALREADY_REPORTED": "You have already submitted this report",
+    "CONTENT_NOT_FOUND": "Content report not found"
+}

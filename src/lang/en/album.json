@@ -1,0 +1,55 @@
+{
+    "ALBUM_CREATED": "Album created successfully.",
+    "ALBUM_LIST": "Albums fetched successfully.",
+    "ALBUM_DETAIL": "Album details fetched successfully.",
+    "ALBUM_UPDATED": "Album updated successfully.",
+    "ALBUM_DELETED": "Album deleted successfully.",
+    "ALBUM_ALREADY_EXISTS": "Album already exists.",
+    "COVER_IMAGE_REQUIRED": "Cover image is required",
+
+    "TRACKS_FETCHED": "Tracks fetched successfully",
+    "ALBUM_NOT_FOUND": "Album not found",
+
+    "ALBUM_PUBLISHED_SUCCESS": "Album published successfully",
+    "ALBUM_SCHEDULED_SUCCESS": "Album scheduled successfully",
+    "ALBUM_SCHEDULE_DELETED": "Scheduled publish removed successfully",
+    "PUBLISH_REQUEST_LIST": "Publish request list fetched successfully",
+    "PUBLISH_REQUEST_ACTION_DONE": "Publish request action completed successfully",
+    "BULK_REQUEST_ACTION_DONE": "Bulk publish request action completed successfully",
+    "UNAUTHORIZED": "You are not authorized to perform this action",
+
+    "ONLY_VERIFIED_PODCASTER_CAN_SCHEDULE": "Only verified podcasters can schedule album publishing",
+    "ALBUM_NOT_SCHEDULED": "This album is not scheduled for publishing",
+    "REQUEST_NOT_FOUND": "Publish request not found",
+    "REQUEST_ALREADY_SENT": "Request has already been sent.",
+    "TITLE_REQUIRED": "Title is required",
+    "INVALID_ACTION": "Invalid action",
+
+    "PUBLISH_REQUEST_SENT_TO_ADMIN": "Publish request has been sent to admin.",
+
+    "CATEGORY_REQUIRED": "At least one category is required",
+    "CATEGORY_NOT_FOUND": "One or more categories not found",
+    "INVALID_CATEGORY_IDS": "Invalid categoryIds. Must be an array of valid UUIDs",
+    "INVALID_PODCASTER_ID": "Invalid podcasterId. Must be a valid UUID",
+    "INVALID_STATUS": "Invalid status. Must be one of: DRAFT, PENDING_APPROVAL, PUBLISHED",
+    "TRANSLATIONS_REQUIRED": "At least one translation is required",
+    "INVALID_TRANSLATIONS": "Invalid translations format. Must be an array of objects with language, title, and description",
+    "INVALID_TRANSLATIONS_JSON": "Invalid translations JSON format",
+    "INVALID_TRANSLATION_LANGUAGE": "Invalid translation language.",
+    "INVALID_TRANSLATION_TITLE": "Translation title is required.",
+    "INVALID_TRANSLATION_DESCRIPTION": "Translation description is required.",
+    "INVALID_META_TITLE": "Meta title must be a string.",
+    "INVALID_META_DESCRIPTION": "Meta description must be a string.",
+    "INVALID_META_KEYWORDS": "Meta keywords must be an array of strings.",
+    "UPDATE_DATA_REQUIRED": "At least one field must be provided for update",
+    "INVALID_CATEGORY_JSON": "Invalid categoryIds JSON format",
+    "INVALID_CATEGORY_ID": "Invalid category ID. Must be a valid UUID",
+    "INVALID_TOTAL_DURATION": "Invalid totalDuration. Must be a valid number",
+    "TYPE_REQUIRED": "Type is required.",
+    "INVALID_TYPE": "Invalid type. Allowed values are PODCAST or AUDIOBOOK.",
+
+    "INVALID_TITLE": "Invalid album title.",
+
+    "DESCRIPTION_REQUIRED": "Description is required.",
+    "INVALID_DESCRIPTION": "Invalid album description."
+}

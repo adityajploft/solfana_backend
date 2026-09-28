@@ -1,0 +1,60 @@
+ToggleFollowRequest:
+  type: object
+  required:
+    - podcasterId
+
+  properties:
+    podcasterId:
+      type: string
+      format: uuid
+      example: 9eaf8700-6eca-4f2e-a673-371b85635150
+
+PodcasterSummary:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+
+    name:
+      type: string
+
+    profileImage:
+      type: string
+      nullable: true
+
+    followersCount:
+      type: integer
+
+    isFollowing:
+      type: boolean
+
+PodcasterProfile:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+
+    name:
+      type: string
+
+    bio:
+      type: string
+
+    profileImage:
+      type: string
+      nullable: true
+
+    followersCount:
+      type: integer
+
+    totalAlbums:
+      type: integer
+
+    isFollowing:
+      type: boolean
+
+    createdAt:
+      type: string
+      format: date-time

@@ -1,0 +1,23 @@
+{
+  "PODCASTER_CREATED": "Podcasteur créé avec succès",
+  "PODCASTER_UPDATED": "Podcasteur mis à jour avec succès",
+  "PODCASTER_DELETED": "Podcasteur supprimé avec succès",
+  "PODCASTER_LIST": "Podcasteurs récupérés avec succès",
+  "PODCASTER_DETAIL": "Détails du podcasteur récupérés",
+  "PODCASTER_EXISTS": "Le podcasteur existe déjà",
+  "PODCASTER_NAME_REQUIRED": "Le nom du podcasteur est requis",
+  "PODCASTER_EMAIL_REQUIRED": "L’e-mail du podcasteur est requis",
+  "PODCASTER_PHONE_REQUIRED": "Le numéro de téléphone du podcasteur est requis",
+  "PODCASTER_NOT_FOUND": "Podcasteur introuvable",
+  "PODCASTER_PROFILE_FETCHED": "Profil du podcasteur récupéré avec succès",
+
+  "PODCASTER_FOLLOWED": "Podcasteur suivi avec succès",
+  "PODCASTER_UNFOLLOWED": "Podcasteur retiré des suivis avec succès",
+  "FOLLOWED_PODCASTERS_FETCHED": "Podcasteurs suivis récupérés avec succès",
+  "PODCASTER_NAME_TOO_LONG": "Le nom du podcasteur est trop long",
+  "INVALID_EMAIL_FORMAT": "Format d'email invalide",
+  "PASSWORD_TOO_SHORT": "Le mot de passe doit contenir au moins 6 caractères",
+  "INVALID_PHONE_NUMBER": "Numéro de téléphone invalide",
+  "PODCASTER_BIO_TOO_SHORT": "La biographie doit contenir au moins 10 caractères",
+  "VALIDATION_ERROR": "Échec de validation"
+}

@@ -1,0 +1,20 @@
+{
+  "PLAYLIST_CREATED": "Playlist créée avec succès",
+  "PLAYLISTS_FETCHED": "Playlists récupérées avec succès",
+  "TRACK_ADDED": "Piste ajoutée avec succès",
+  "TRACK_REMOVED": "Piste supprimée avec succès",
+  "PLAYLIST_DETAILS_FETCHED": "Détails de la playlist récupérés avec succès",
+
+  "PLAYLIST_ALREADY_EXISTS": "La playlist existe déjà",
+  "PLAYLIST_NOT_FOUND": "Playlist introuvable",
+  "TRACK_NOT_FOUND": "Piste introuvable",
+  "TRACK_ALREADY_EXISTS_IN_PLAYLIST": "La piste existe déjà dans la playlist",
+  "TRACK_NOT_FOUND_IN_PLAYLIST": "Piste introuvable dans la playlist",
+  "PLAYLIST_DELETED": "Playlist supprimée avec succès",
+  "TITLE_REQUIRED": "Le titre est requis",
+  "TRACKS_REQUIRED": "Les pistes sont requises",
+  "TRACKID_NOT_FOUND": "Une ou plusieurs pistes sont introuvables",
+  "TRACK_ALREADY_EXISTS": "La piste existe déjà dans la playlist.",
+  "TRACK_ADDED_SUCCESS": "La piste a été ajoutée avec succès.",
+  "PLAYLIST_LIMIT_EXCCEED": "Vous avez atteint le nombre maximum de playlists autorisées"
+}

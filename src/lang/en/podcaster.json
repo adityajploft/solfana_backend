@@ -1,0 +1,23 @@
+{
+  "PODCASTER_CREATED": "Podcaster created successfully",
+  "PODCASTER_UPDATED": "Podcaster updated successfully",
+  "PODCASTER_DELETED": "Podcaster deleted successfully",
+  "PODCASTER_LIST": "Podcaster fetched successfully",
+  "PODCASTER_DETAIL": "Podcaster details fetched",
+  "PODCASTER_EXISTS": "Podcaster already exists",
+  "PODCASTER_NAME_REQUIRED": "Podcaster name required",
+  "PODCASTER_EMAIL_REQUIRED": "Podcaster name required",
+  "PODCASTER_PHONE_REQUIRED": "Podcaster phone required",
+  "PODCASTER_NOT_FOUND": "Podcaster not found",
+  "PODCASTER_PROFILE_FETCHED": "Podcaster profile fetched successfully",
+
+  "PODCASTER_FOLLOWED": "Podcaster followed successfully",
+  "PODCASTER_UNFOLLOWED": "Podcaster unfollowed successfully",
+  "FOLLOWED_PODCASTERS_FETCHED": "Followed podcasters fetched successfully",
+  "PODCASTER_NAME_TOO_LONG": "Podcaster name is too long",
+  "INVALID_EMAIL_FORMAT": "Invalid email format",
+  "PASSWORD_TOO_SHORT": "Password must be at least 6 characters",
+  "INVALID_PHONE_NUMBER": "Invalid phone number",
+  "PODCASTER_BIO_TOO_SHORT": "Bio must be at least 10 characters",
+  "VALIDATION_ERROR": "Validation failed"
+}

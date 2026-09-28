@@ -1,0 +1,21 @@
+{
+    "LIBRARY_FETCHED": "Bibliothèque récupérée avec succès",
+    "ALBUM_ADDED_TO_FAVORITE": "Album ajouté aux favoris avec succès",
+    "TRACK_ADDED_TO_FAVORITE": "Piste ajoutée aux favoris avec succès",
+    "ALBUM_REMOVED_FROM_FAVORITE": "Album supprimé des favoris avec succès",
+    "TRACK_REMOVED_FROM_FAVORITE": "Piste supprimée des favoris avec succès",
+    "FAVORITES_FETCHED": "Favoris récupérés avec succès",
+    "ALBUM_LIKED_SUCCESS": "Album aimé avec succès",
+    "TRACK_LIKED_SUCCESS": "Piste aimée avec succès",
+    "ALBUM_DISLIKED_SUCCESS": "Album retiré des mentions J’aime avec succès",
+    "TRACK_DISLIKED_SUCCESS": "Piste retirée des mentions J’aime avec succès",
+    "ALBUM_ADDED_TO_LIBRARY": "Album ajouté à la bibliothèque",
+    "TRACK_ADDED_TO_LIBRARY": "Piste ajoutée à la bibliothèque",
+    "ALBUM_REMOVED_FROM_LIBRARY": "Album retiré de la bibliothèque",
+    "TRACK_REMOVED_FROM_LIBRARY": "Piste retirée de la bibliothèque",
+    "LIKES_FETCHED": "Mentions J’aime récupérées avec succès",
+    "ALBUM_LIKE_REMOVED_SUCCESS": "Le like de l'album a été supprimé avec succès",
+    "TRACK_LIKE_REMOVED_SUCCESS": "Le like du morceau a été supprimé avec succès",
+    "ALBUM_DISLIKE_REMOVED_SUCCESS": "Le dislike de l'album a été supprimé avec succès",
+    "TRACK_DISLIKE_REMOVED_SUCCESS": "Le dislike du morceau a été supprimé avec succès"
+}

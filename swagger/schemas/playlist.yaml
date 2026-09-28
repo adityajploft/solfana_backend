@@ -1,0 +1,21 @@
+CreatePlaylistRequest:
+  type: object
+  required:
+    - title
+
+  properties:
+    title:
+      type: string
+      example: My Favorite Song
+
+AddPlaylistTracksRequest:
+  type: object
+  required:
+    - trackIds
+
+  properties:
+    trackIds:
+      type: array
+      items:
+        type: string
+        format: uuid

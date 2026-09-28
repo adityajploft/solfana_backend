@@ -1,0 +1,8 @@
+{
+  "CUSTOMER_LIST": "Liste des clients récupérée avec succès",
+  "CUSTOMER_DETAILS": "Détails du client récupérés avec succès",
+  "CUSTOMER_STATUS_UPDATED": "Statut du client mis à jour avec succès",
+  "CUSTOMER_NOT_FOUND": "Client introuvable",
+  "CUSTOMER_ID_REQUIRED": "L’identifiant du client est requis",
+  "CUSTOMER_ID_INVALID": "L’identifiant du client est invalide"
+}

@@ -1,0 +1,36 @@
+ErrorResponse:
+  type: object
+
+  properties:
+    success:
+      type: boolean
+      example: false
+
+    message:
+      type: string
+      example: Something went wrong
+
+ValidationError:
+  type: object
+
+  properties:
+    success:
+      type: boolean
+      example: false
+
+    message:
+      type: string
+      example: Validation failed
+
+    errors:
+      type: array
+
+      items:
+        type: object
+
+        properties:
+          field:
+            type: string
+
+          message:
+            type: string

@@ -1,0 +1,17 @@
+InitiatePaymentRequest:
+  type: object
+  required:
+    - planId
+    - paymentGateway
+
+  properties:
+    planId:
+      type: string
+      format: uuid
+      example: 3a83692d-3fe9-4e5d-8bd0-7954228c6336
+
+    paymentGateway:
+      type: string
+      enum:
+        - FEDAPAY
+      example: FEDAPAY

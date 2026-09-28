@@ -1,0 +1,52 @@
+{
+  "TRACK_CREATED": "Track created successfully.",
+  "TRACK_LIST": "Track list retrieved successfully.",
+  "TRACK_DETAIL": "Track details retrieved successfully.",
+  "TRACK_UPDATED": "Track updated successfully.",
+  "TRACK_DELETED": "Track deleted successfully.",
+
+  "TRACK_NOT_FOUND": "Track not found.",
+  "TRACK_NUMBER_ALREADY_EXISTS": "Track number already exists in this album.",
+  "ALBUM_NOT_FOUND": "Album not found.",
+  "AUDIO_NOT_FOUND": "Audio file not found.",
+  "LANGUAGE_NOT_FOUND": "Language not found.",
+
+  "MP3_FILE_REQUIRED": "MP3 file is required.",
+  "ONLY_MP3_ALLOWED": "Only MP3 files are allowed.",
+  "FILE_TOO_LARGE": "File size exceeds the 150MB limit.",
+  "CDN_UPLOAD_FAILED": "Failed to upload file to CDN.",
+
+  "TRACK_PUBLISHED_SUCCESS": "Track published successfully.",
+  "TRACK_SCHEDULED_SUCCESS": "Track scheduled successfully.",
+  "TRACK_SCHEDULE_DELETED": "Track schedule deleted successfully.",
+  "REQUEST_ALREADY_SENT": "Publish request has already been sent.",
+  "ONLY_VERIFIED_PODCASTER_CAN_SCHEDULE": "Only verified podcasters can schedule tracks.",
+  "TRACK_NOT_SCHEDULED": "Track is not scheduled.",
+
+  "PUBLISH_REQUEST_SENT_TO_ADMIN": "Publish request has been sent to admin.",
+  "INVALID_IMAGE_FORMAT": "Invalid image format. Only JPEG,JPG and PNG are allowed.",
+  "IMAGE_TOO_LARGE": "Image size exceeds the 5MB limit.",
+
+  "ALBUM_ID_REQUIRED": "Album ID is required.",
+  "INVALID_ALBUM_ID": "Invalid album ID.",
+
+  "AUDIO_LIBRARY_ID_REQUIRED": "Audio library ID is required.",
+  "INVALID_AUDIO_LIBRARY_ID": "Invalid audio library ID.",
+  "AUDIO_LIBRARY_NOT_FOUND": "Audio library not found.",
+
+  "TITLE_REQUIRED": "Track title is required.",
+  "INVALID_TITLE": "Invalid track title.",
+
+  "INVALID_DESCRIPTION": "Invalid track description.",
+
+  "DURATION_REQUIRED": "Track duration is required.",
+  "INVALID_DURATION": "Invalid track duration.",
+
+  "TRACK_NUMBER_REQUIRED": "Track number is required.",
+  "INVALID_TRACK_NUMBER": "Invalid track number.",
+  "TRACK_NUMBER_EXISTS": "Track number already exists in this album.",
+
+  "INVALID_STATUS": "Invalid track status.",
+
+  "UPDATE_DATA_REQUIRED": "Update data is required."
+}

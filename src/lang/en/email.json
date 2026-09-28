@@ -1,0 +1,10 @@
+{
+  "EMAIL_CREATED_AND_SENT" : "Email created and sent successfully.",
+  "EMAIL_DRAFT_CREATED" : "Email created as draft successfully.",
+  "EMAIL_UPDATE_SUCCESS" : "Email updated successfully.",
+  "EMAIL_DELETE_SUCCESS" : "Email deleted successfully.",
+
+  "EMAIL_NOT_FOUND" : "Email is not found",
+  "EMAIL_ALREADY_SENT" : "Email is already sent",
+  "NO_RECIPIENTS_FOUND" : "No recipient found"
+}

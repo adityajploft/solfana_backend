@@ -1,0 +1,21 @@
+{
+    "SUBSCRIPTION_PLAN_CREATED": "Subscription plan created successfully",
+    "SUBSCRIPTION_PLAN_ALREADY_EXISTS": "A subscription plan with this name or code already exists",
+    "FREE_PLAN_PRICE_MUST_BE_ZERO": "Price for FREE plan must be zero",
+    "DURATION_REQUIRED_FOR_PREMIUM": "Duration is required for PREMIUM plan",
+    "SUBSCRIPTION_PLAN_LIST": "Subscription plans retrieved successfully",
+    "SUBSCRIPTION_PLAN_NOT_FOUND": "Subscription plan not found",
+    "SUBSCRIPTION_PLAN_DETAILS": "Subscription plan details fetched successfully",
+    "SUBSCRIPTION_PLAN_UPDATED": "Subscription plan updated successfully",
+    "SUBSCRIPTION_PLAN_DELETED": "Subscription plan deleted successfully",
+    "CUSTOMER_NOT_FOUND": "Customer not found",
+    "PLAN_NOT_FOUND": "Subscription plan not found",
+    "SUBSCRIPTION_PLAN_ASSIGNED": "Subscription plan assigned successfully",
+    "SUBSCRIPTION_REVOKED": "Subscription revoked successfully",
+    "ACTIVE_SUBSCRIPTION_NOT_FOUND": "Active subscription not found for the customer",
+    "SUBSCRIPTION_PLAN_STATUS_UPDATED": "Subscription plan status updated successfully",
+    "FREE_PLAN_CANNOT_BE_ASSIGNED_MANUALLY": "FREE plan cannot be assigned manually",
+    "SUBSCRIPTION_HISTORY_FETCHED": "Subscription history fetched successfully",
+    "SUBSCRIPTION_NOT_FOUND": "Subscription not found",
+    "SUBSCRIPTION_CANCELED_SUCCESS": "Your subscription has been cancelled successfully. You can continue using the plan until the current billing period ends."
+}

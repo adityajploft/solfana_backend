@@ -1,0 +1,39 @@
+{
+    "ADCAMPAIGN_CREATED": "Ad campaign created successfully.",
+    "ADCAMPAIGN_LIST": "Ad campaigns fetched successfully.",
+    "ADCAMPAIGN_DETAIL": "Ad campaign details fetched successfully.",
+    "ADCAMPAIGN_UPDATED": "Ad campaign updated successfully.",
+    "ADCAMPAIGN_DELETED": "Ad campaign deleted successfully.",
+    "ADCAMPAIGN_NOT_FOUND": "Ad campaign not found.",
+    "ADCAMPAIGN_STATUS_CHANGE": "The Ad campaign status has been successfully changed.",
+
+    "NAME_REQUIRED": "Campaign name is required.",
+    "START_DATE_INVALID": "The start date provided is invalid.",
+    "END_DATE_INVALID": "The end date provided is invalid.",
+    "BANNER_NOT_ALLOWED": "Banner ads are not permitted in an AUDIO campaign.",
+    "AUDIO_AD_NOT_ALLOWED": "Audio ads are not permitted in a BANNER campaign.",
+    "MIX_CAMPAIGN_REQUIRED_AD": "At least one advertisement is required for a MIXED campaign.",
+    "END_DATE_AFTER_START_DATE": "The end date must be later than the start date.",
+    "AUDIO_ID_INVALID": "One or more audio IDs are invalid.",
+    "BANNER_ID_INVALID": "One or more banner IDs are invalid.",
+    "CAMPAIGN_ALREADY_EXIST": "A campaign with this name already exists.",
+
+    "CAMPAIGN_TYPE_REQUIRED": "Campaign type is required.",
+    "CAMPAIGN_TYPE_INVALID": "Invalid campaign type.",
+
+    "USER_TYPE_REQUIRED": "User type is required.",
+    "USER_TYPE_INVALID": "Invalid user type.",
+
+    "PRIORITY_REQUIRED": "Campaign priority is required.",
+    "PRIORITY_INVALID": "Invalid campaign priority.",
+
+    "STATUS_REQUIRED": "Campaign status is required.",
+    "STATUS_INVALID": "Invalid campaign status.",
+
+    "NAME_STRING_INVALID": "Campaign name must be a string.",
+
+    "DESCRIPTION_INVALID": "Description must be a string.",
+
+    "AUDIO_ARRAY_INVALID": "Audio ads must be an array.",
+    "BANNER_ARRAY_INVALID": "Banner ads must be an array."
+}

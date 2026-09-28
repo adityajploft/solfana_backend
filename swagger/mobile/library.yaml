@@ -1,0 +1,125 @@
+paths:
+
+  /api/mobile/library:
+    get:
+      tags:
+        - Library
+      summary: Get library content
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Library content fetched successfully
+
+    post:
+      tags:
+        - Library
+      summary: Add or remove album/track from library
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/library.yaml#/LibraryEntityRequest'
+      responses:
+        '200':
+          description: Library updated successfully
+
+  /api/mobile/library/favorite:
+    post:
+      tags:
+        - Library
+      summary: Add or remove favorite album/track
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/library.yaml#/LibraryEntityRequest'
+      responses:
+        '200':
+          description: Favorite status updated successfully
+
+  /api/mobile/library/favorites:
+    get:
+      tags:
+        - Library
+      summary: Get all favorite albums and tracks
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - all
+              - album
+              - track
+          example: all
+      responses:
+        '200':
+          description: Favorites fetched successfully
+
+  /api/mobile/library/like:
+    post:
+      tags:
+        - Library
+      summary: Like or dislike a track or album
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/library.yaml#/LikeDislikeRequest'
+      responses:
+        '200':
+          description: Like status updated successfully
+
+  /api/mobile/library/likes:
+    get:
+      tags:
+        - Library
+      summary: Get liked albums and tracks
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - all
+              - album
+              - track
+          example: all
+
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Liked content fetched successfully

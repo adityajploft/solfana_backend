@@ -1,0 +1,153 @@
+paths:
+
+  /api/mobile/track-analytics/listen/start:
+    post:
+      tags:
+        - Track Analytics
+      summary: Start track listening session
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/track-analytics.yaml#/StartListenRequest'
+      responses:
+        '200':
+          description: Listening session started
+
+  /api/mobile/track-analytics/listen/progress:
+    post:
+      tags:
+        - Track Analytics
+      summary: Update listening progress
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/track-analytics.yaml#/ListenProgressRequest'
+      responses:
+        '200':
+          description: Listening progress updated
+
+  /api/mobile/track-analytics/listen/status:
+    get:
+      tags:
+        - Track Analytics
+      summary: Get current listening status
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Listening status fetched successfully
+
+  /api/mobile/track-analytics/ads/reward:
+    post:
+      tags:
+        - Track Analytics
+      summary: Reward user after ad watched
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Reward granted successfully
+
+  /api/mobile/track-analytics/play:
+    post:
+      tags:
+        - Track Analytics
+      summary: Play track from a specific source
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/track-analytics.yaml#/PlayTrackRequest'
+      responses:
+        '200':
+          description: Track details fetched successfully
+
+  /api/mobile/track-analytics/queue/next:
+    get:
+      tags:
+        - Track Analytics
+      summary: Get next track in queue
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: cursor
+          in: query
+          required: true
+          schema:
+            type: integer
+          example: 10
+
+        - name: source
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - playlist
+              - album
+              - like
+              - favorite
+              - library
+              - recent
+              - single
+
+        - name: sourceId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+
+      responses:
+        '200':
+          description: Next track fetched successfully
+
+  /api/mobile/track-analytics/queue/prev:
+    get:
+      tags:
+        - Track Analytics
+      summary: Get previous track in queue
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: cursor
+          in: query
+          required: true
+          schema:
+            type: integer
+
+        - name: source
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - playlist
+              - album
+              - like
+              - favorite
+              - library
+              - recent
+              - single
+
+        - name: sourceId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+
+      responses:
+        '200':
+          description: Previous track fetched successfully

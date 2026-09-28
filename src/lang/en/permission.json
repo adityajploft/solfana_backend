@@ -1,0 +1,12 @@
+{
+  "PERMISSION_LIST": "Permissions fetched successfully",
+  "PERMISSION_CREATED": "Permissions created successfully",
+  "PERMISSION_DELETED": "Permission deleted successfully",
+  "PERMISSION_NOT_FOUND": "Permission not found",
+  "PERMISSION_ASSIGNED": "Permission is assigned to a role and cannot be deleted",
+  "PERMISSION_ALREADY_EXISTS": "Permission already exists",
+  "PERMISSION_CREATE_FAILED": "Failed to create permissions",
+  "PERMISSION_DELETE_FAILED": "Failed to delete permission",
+  "PERMISSION_LIST_FAILED": "Failed to fetch permissions",
+  "INVALID_ID": "Invalid permission id"
+}

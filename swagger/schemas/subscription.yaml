@@ -1,0 +1,42 @@
+SubscriptionPlan:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    name:
+      type: string
+    description:
+      type: string
+    durationMonths:
+      type: integer
+    price:
+      type: number
+    currency:
+      type: string
+    isPopular:
+      type: boolean
+
+SubscriptionHistory:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    planName:
+      type: string
+    startDate:
+      type: string
+      format: date-time
+    endDate:
+      type: string
+      format: date-time
+    amount:
+      type: number
+    status:
+      type: string
+      enum:
+        - ACTIVE
+        - EXPIRED
+        - CANCELLED
+        - PENDING

@@ -1,0 +1,40 @@
+{
+    "ADCAMPAIGN_CREATED": "Campagne publicitaire créée avec succès.",
+    "ADCAMPAIGN_LIST": "Campagnes publicitaires récupérées avec succès.",
+    "ADCAMPAIGN_DETAIL": "Détails de la campagne publicitaire récupérés avec succès.",
+    "ADCAMPAIGN_UPDATED": "Campagne publicitaire mise à jour avec succès.",
+    "ADCAMPAIGN_DELETED": "Campagne publicitaire supprimée avec succès.",
+    "ADCAMPAIGN_NOT_FOUND": "Campagne publicitaire introuvable.",
+    "ADCAMPAIGN_STATUS_CHANGE": "Le statut de la campagne publicitaire a été modifié avec succès.",
+
+
+    "NAME_REQUIRED": "Le nom de la campagne est obligatoire.",
+    "START_DATE_INVALID": "La date de début fournie est invalide.",
+    "END_DATE_INVALID": "La date de fin fournie est invalide.",
+    "BANNER_NOT_ALLOWED": "Les bannières publicitaires ne sont pas autorisées dans une campagne AUDIO.",
+    "AUDIO_AD_NOT_ALLOWED": "Les publicités audio ne sont pas autorisées dans une campagne BANNER.",
+    "MIX_CAMPAIGN_REQUIRED_AD": "Au moins une publicité est requise pour une campagne MIXED.",
+    "END_DATE_AFTER_START_DATE": "La date de fin doit être postérieure à la date de début.",
+    "AUDIO_ID_INVALID": "Un ou plusieurs identifiants audio sont invalides.",
+    "BANNER_ID_INVALID": "Un ou plusieurs identifiants de bannière sont invalides.",
+    "CAMPAIGN_ALREADY_EXIST": "Une campagne portant ce nom existe déjà.",
+
+    "CAMPAIGN_TYPE_REQUIRED": "Le type de campagne est obligatoire.",
+    "CAMPAIGN_TYPE_INVALID": "Le type de campagne est invalide.",
+
+    "USER_TYPE_REQUIRED": "Le type d'utilisateur est obligatoire.",
+    "USER_TYPE_INVALID": "Le type d'utilisateur est invalide.",
+
+    "PRIORITY_REQUIRED": "La priorité de la campagne est obligatoire.",
+    "PRIORITY_INVALID": "La priorité de la campagne est invalide.",
+
+    "STATUS_REQUIRED": "Le statut de la campagne est obligatoire.",
+    "STATUS_INVALID": "Le statut de la campagne est invalide.",
+
+    "NAME_STRING_INVALID": "Le nom de la campagne doit être une chaîne de caractères.",
+
+    "DESCRIPTION_INVALID": "La description doit être une chaîne de caractères.",
+
+    "AUDIO_ARRAY_INVALID": "Les publicités audio doivent être un tableau.",
+    "BANNER_ARRAY_INVALID": "Les bannières publicitaires doivent être un tableau."
+}

@@ -1,0 +1,11 @@
+{
+  "DASHBOARD_FETCHED": "Les données du tableau de bord ont été récupérées avec succès.",
+  "PODCASTERS_FETCHED": "Les podcasteurs ont été récupérés avec succès.",
+  "BEST_PODCASTS_FETCHED": "Les meilleurs podcasts ont été récupérés avec succès.",
+  "AUDIOBOOKS_FETCHED": "Les livres audio ont été récupérés avec succès.",
+  "RECOMMENDED_FETCHED": "Le contenu recommandé a été récupéré avec succès.",
+  "GENRES_FETCHED": "Les genres ont été récupérés avec succès.",
+  "RECENTLY_PLAYED_FETCHED": "Le contenu récemment joué a été récupéré avec succès.",
+
+  "INVALID_TYPE": "Le type doit être soit 'podcast', soit 'livre audio'."
+}

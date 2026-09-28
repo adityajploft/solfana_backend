@@ -1,0 +1,12 @@
+{
+  "ROLE_LIST": "Rôles récupérés avec succès",
+  "ROLE_DETAIL": "Rôle récupéré avec succès",
+  "ROLE_CREATED": "Rôle créé avec succès",
+  "ROLE_UPDATED": "Rôle mis à jour avec succès",
+  "ROLE_DELETED": "Rôle supprimé avec succès",
+  "INVALID_ID": "Identifiant de rôle invalide",
+  "ROLE_EXISTS": "Le rôle existe déjà",
+  "ROLE_NOT_FOUND": "Rôle introuvable",
+  "INVALID_PERMISSIONS": "Une ou plusieurs autorisations sont invalides",
+  "ROLE_IN_USE": "Le rôle est attribué à des utilisateurs et ne peut pas être supprimé"
+}

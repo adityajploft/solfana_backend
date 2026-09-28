@@ -1,0 +1,88 @@
+Category:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    name:
+      type: string
+    image:
+      type: string
+      nullable: true
+
+Genre:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    name:
+      type: string
+    image:
+      type: string
+      nullable: true
+
+GenreChild:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    parentId:
+      type: string
+      format: uuid
+    name:
+      type: string
+    image:
+      type: string
+      nullable: true
+
+GoogleAdmobSettings:
+  type: object
+  properties:
+    appId:
+      type: string
+    bannerAdUnitId:
+      type: string
+    interstitialAdUnitId:
+      type: string
+    rewardedAdUnitId:
+      type: string
+    nativeAdUnitId:
+      type: string
+
+AudioAd:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    title:
+      type: string
+    audioUrl:
+      type: string
+      format: uri
+    image:
+      type: string
+      nullable: true
+    duration:
+      type: integer
+      description: Duration in seconds
+
+BannerAd:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    title:
+      type: string
+    image:
+      type: string
+      format: uri
+    redirectUrl:
+      type: string
+      format: uri
+    position:
+      type: string
+      example: HOME_TOP

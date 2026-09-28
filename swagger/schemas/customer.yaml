@@ -1,0 +1,27 @@
+Customer:
+  type: object
+
+  properties:
+
+    id:
+      type: string
+      format: uuid
+
+    email:
+      type: string
+      format: email
+
+    phone:
+      type: string
+
+    languageId:
+      type: integer
+      nullable: true
+
+    createdAt:
+      type: string
+      format: date-time
+
+    updatedAt:
+      type: string
+      format: date-time

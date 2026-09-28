@@ -1,0 +1,270 @@
+paths:
+
+  /api/mobile/auth/login/email:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Send OTP for Login/Signup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/LoginEmailRequest'
+      responses:
+        '200':
+          description: Success
+
+  /api/mobile/auth/login/verify-otp:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Verify Login OTP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/VerifyOtpRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                  email:
+                    type: string
+                  userExists:
+                    type: boolean
+
+  /api/mobile/auth/login:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Login With Password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/LoginPasswordRequest'
+      responses:
+        '200':
+          description: Success
+
+
+  /api/mobile/auth/signup/phone:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Add Phone Number (For new users only)
+      security:
+      - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/AddPhoneNumberRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                  email:
+                    type: string
+                  phone:
+                    type: 
+                    
+  /api/mobile/auth/signup/create-password:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Create Password & Complete Registration
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/CreatePasswordRequest'
+      responses:
+        '200':
+          description: Registration completed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                  user:
+                    type: object
+
+  /api/mobile/auth/forgot-password/email:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Forgot Password - Send OTP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/ForgotPasswordEmailRequest'
+      responses:
+        '200':
+          description: OTP sent successfully
+
+  /api/mobile/auth/forgot-password/verify-otp:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Forgot Password - Verify OTP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/ForgotPasswordVerifyOtpRequest'
+      responses:
+        '200':
+          description: OTP verified successfully
+
+  /api/mobile/auth/reset-password:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Reset Password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/ResetPasswordRequest'
+      responses:
+        '200':
+          description: Password reset successfully
+
+  /api/mobile/auth/me:
+    get:
+      tags:
+        - Mobile Auth
+      summary: Get User Profile
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: User profile fetched successfully
+
+  /api/mobile/auth/update-profile:
+    put:
+      tags:
+        - Mobile Auth
+      summary: Update Profile
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '../schemas/auth.yaml#/UpdateProfileRequest'
+            encoding:
+              profileImage:
+                contentType: image/png, image/jpeg, image/webp
+      responses:
+        '200':
+          description: Profile updated successfully
+
+  /api/mobile/auth/change-password:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Change Password
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/ChangePasswordRequest'
+      responses:
+        '200':
+          description: Password changed 
+          
+  /api/mobile/auth/user/language:
+    put:
+      tags:
+        - Mobile Auth
+      summary: Update Language
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/UpdateLanguageRequest'
+      responses:
+        '200':
+          description: Language updated successfully     
+
+  /api/mobile/auth/logout:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Logout
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Logout successful  
+
+
+  /api/mobile/interests:
+    get:
+      tags:
+        - Mobile Interests
+      summary: Get All Interests
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Interests fetched successfully  
+
+
+  /api/mobile/auth/user/interests:
+    post:
+      tags:
+        - Mobile Auth
+      summary: Save User Interests
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/auth.yaml#/SaveUserInterestsRequest'
+      responses:
+        '200':
+          description: Interests saved successfully
+
+
+  
+
+            

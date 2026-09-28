@@ -1,0 +1,46 @@
+paths:
+
+  /api/mobile/payment/initiate:
+    post:
+      tags:
+        - Payment
+      summary: Initiate subscription payment
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/payment.yaml#/InitiatePaymentRequest'
+      responses:
+        '200':
+          description: Payment initiated successfully
+
+  /api/mobile/payment/verify:
+    get:
+      tags:
+        - Payment
+      summary: Verify payment status
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: transactionId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: f13a621a-2f36-4135-89de-004dcc2fb175
+
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 9318ede4-12ab-4cdf-ab22-87bfdc0b3e27
+
+      responses:
+        '200':
+          description: Payment verification completed

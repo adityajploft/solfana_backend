@@ -1,0 +1,80 @@
+paths:
+
+  /api/mobile/dashboard:
+    get:
+      tags:
+        - Dashboard
+      summary: Get Dashboard Content
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - all
+              - audiobook
+              - podcast
+          description: Filter dashboard content by type
+          example: all
+      responses:
+        '200':
+          description: Dashboard content fetched successfully        
+
+
+  /api/mobile/dashboard/podcasters/all:
+    get:
+      tags:
+        - Dashboard
+      summary: Get All Podcasters
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Podcasters fetched successfully
+
+  /api/mobile/dashboard/best-podcasts/all:
+    get:
+      tags:
+        - Dashboard
+      summary: Get All Best Podcasts
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Best podcasts fetched successfully
+
+  /api/mobile/dashboard/audiobooks/all:
+    get:
+      tags:
+        - Dashboard
+      summary: Get All Audiobooks
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Audiobooks fetched successfully
+
+  /api/mobile/dashboard/recommended-for-you/all:
+    get:
+      tags:
+        - Dashboard
+      summary: Get Recommended Content
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Recommended content fetched successfully
+
+  /api/mobile/dashboard/genres/all:
+    get:
+      tags:
+        - Dashboard
+      summary: Get All Genres
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Genres fetched successfully

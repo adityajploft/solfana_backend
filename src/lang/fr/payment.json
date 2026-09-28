@@ -1,0 +1,17 @@
+{
+    "PLAN_ID_REQUIRED": "L'ID du plan est requis.",
+    "INVALID_PLAN_ID": "ID du plan invalide.",
+    "INVALID_PAYMENT_GATEWAY": "Passerelle de paiement invalide.",
+    "PLAN_NOT_FOUND": "Plan introuvable.",
+    "FREE_PLAN_NOT_PAYABLE": "Le plan gratuit ne peut pas être payé.",
+    "INVALID_PLAN_DURATION": "Durée du plan invalide.",
+    "TRANSACTION_ID_REQUIRED": "L'ID de la transaction est requis.",
+    "INVALID_TRANSACTION_ID": "ID de transaction invalide.",
+    "TRANSACTION_NOT_FOUND": "Transaction introuvable.",
+    "PAYMENT_INITIATED": "Paiement initié avec succès.",
+    "PAYMENT_STATUS_FETCHED": "Statut du paiement récupéré avec succès.",
+    "WEBHOOK_PROCESSED": "Webhook traité avec succès.",
+    "CUSTOMER_NOT_FOUND": "Client introuvable.",
+    "PAYMENT_GATEWAY_ERROR": "Une erreur est survenue avec la passerelle de paiement.",
+    "ALREADY_SUBSCRIBED_PLAN": "Vous avez déjà un abonnement actif pour ce plan"
+}

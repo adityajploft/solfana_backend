@@ -1,0 +1,60 @@
+{
+  "BANNER_CREATED": "Bannière créée avec succès.",
+  "BANNER_LIST": "Bannières récupérées avec succès.",
+  "BANNER_DETAIL": "Détails de la bannière récupérés avec succès.",
+  "BANNER_UPDATED": "Bannière mise à jour avec succès.",
+  "BANNER_DELETED": "Bannière supprimée avec succès.",
+  "BANNER_IMAGE_FILE_REQUIRED": "Le Bannière image est requis.",
+  "BANNER_STATUS_CHANGE": "Le statut de la publicité audio a été modifié avec succès.",
+  "BANNER_NOT_FOUND": "Bannière introuvable.",
+
+
+  "TITLE_REQUIRED": "Le titre est requis.",
+  "TITLE_STRING_INVALID": "Le titre doit être une chaîne de caractères.",
+
+  "PLACEMENTS_REQUIRED": "Au moins un placement est requis.",
+  "PLACEMENTS_STRING_INVALID": "Placements doit être une chaîne de caractères.",
+  "PLACEMENTS_INVALID_JSON": "Placements doit être un JSON valide.",
+
+  "SCREEN_REQUIRED": "Screen est requis.",
+  "SCREEN_STRING_INVALID": "Screen doit être une chaîne de caractères.",
+
+  "POSITION_REQUIRED": "Position est requis.",
+  "POSITION_STRING_INVALID": "Position doit être une chaîne de caractères.",
+
+  "START_DATE_INVALID": "La date de début fournie est invalide.",
+  "START_DATE_STRING_INVALID": "start_date doit être une chaîne de caractères.",
+
+  "END_DATE_INVALID": "La date de fin fournie est invalide.",
+  "END_DATE_STRING_INVALID": "end_date doit être une chaîne de caractères.",
+
+  "END_DATE_AFTER_START_DATE": "La date de fin doit être postérieure à la date de début.",
+
+  "EXTERNAL_URL_REQUIRED": "external_url est requis lorsque action_type est EXTERNAL_URL.",
+  "EXTERNAL_URL_INVALID": "external_url doit être une URL valide.",
+  "EXTERNAL_URL_STRING_INVALID": "external_url doit être une chaîne de caractères.",
+
+  "INTERNAL_SCREEN_REQUIRED": "internal_screen est requis lorsque action_type est INTERNAL_SCREEN.",
+  "INTERNAL_SCREEN_STRING_INVALID": "internal_screen doit être une chaîne de caractères.",
+
+  "IS_ACTIVE_INVALID": "is_active doit être true ou false.",
+  "IS_ACTIVE_STRING_INVALID": "is_active doit être une chaîne de caractères.",
+
+  "BANNER_IMAGE_STRING_INVALID": "banner_image doit être une chaîne de caractères.",
+
+  "TITLE_ALREADY_TAKEN": "Une bannière avec ce titre existe déjà.",
+
+  "BANNER_TYPE_REQUIRED": "Le type de bannière est requis.",
+  "BANNER_TYPE_STRING_INVALID": "Le type de bannière doit être une valeur textuelle valide.",
+  "BANNER_TYPE_MAX_LENGTH": "Le type de bannière ne peut pas dépasser 100 caractères.",
+
+  "BANNER_EVENT_DATE_STRING_INVALID": "La date affichée doit être une valeur textuelle valide.",
+  "BANNER_EVENT_DATE_INVALID": "La date affichée doit être une date valide.",
+
+  "BANNER_EVENT_DATE_AFTER_START_DATE": "La date affichée ne peut pas être antérieure à la date de début de la bannière.",
+  "BANNER_EVENT_DATE_BEFORE_END_DATE": "La date affichée ne peut pas être postérieure à la date de fin de la bannière.",
+
+  "LOCATION_REQUIRED": "L'emplacement est obligatoire.",
+  "LOCATION_STRING_INVALID": "L'emplacement doit être une chaîne de caractères valide.",
+  "LOCATION_MAX_LENGTH": "L'emplacement ne peut pas dépasser 255 caractères."
+}

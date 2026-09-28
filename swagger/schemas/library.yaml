@@ -1,0 +1,46 @@
+LibraryEntityRequest:
+  type: object
+  required:
+    - entityId
+    - entityType
+
+  properties:
+    entityId:
+      type: string
+      format: uuid
+      example: 1b8eb87e-010d-4d86-a82c-6850f907a00e
+
+    entityType:
+      type: string
+      enum:
+        - ALBUM
+        - TRACK
+      example: ALBUM
+
+
+LikeDislikeRequest:
+  type: object
+  required:
+    - entityId
+    - entityType
+    - type
+
+  properties:
+    entityId:
+      type: string
+      format: uuid
+      example: aed83e41-3d7d-414a-bf0d-d8be6e58ca06
+
+    entityType:
+      type: string
+      enum:
+        - ALBUM
+        - TRACK
+      example: TRACK
+
+    type:
+      type: string
+      enum:
+        - LIKE
+        - DISLIKE
+      example: LIKE

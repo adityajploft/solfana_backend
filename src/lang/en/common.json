@@ -1,0 +1,51 @@
+{
+    "PASSWORD_MISMATCH": "Passwords do not match",
+    "VALIDATION_ERROR": "Validation failed",
+
+    "EN_TITLE_REQUIRED": "English title is required",
+    "EN_CONTENT_REQUIRED": "English content is required",
+    "FR_TITLE_REQUIRED": "French title is required",
+    "FR_CONTENT_REQUIRED": "French content is required",
+    "INVALID_CONTENT_KEY": "Invalid content key",
+    "CONTENT_NOT_FOUND": "Content not found",
+
+    "ABOUT_FETCHED": "About Us content fetched successfully",
+    "ABOUT_UPDATED": "About Us content updated successfully",
+    "TERMS_FETCHED": "Terms & Conditions fetched successfully",
+    "TERMS_UPDATED": "Terms & Conditions updated successfully",
+    "PRIVACY_FETCHED": "Privacy Policy fetched successfully",
+    "PRIVACY_UPDATED": "Privacy Policy updated successfully",
+
+    "SETTING_SUCCESS": "Static pages fetched successfully",
+    "USER_SETTINGS_FETCHED": "User settings fetched successfully",
+    "SUPPORT_FETCHED": "Support contact details fetched successfully",
+    "SUPPORT_UPDATED": "Support contact details updated successfully",
+
+    "BECOME_PODCASTER_SAVED": "Become podcaster status saved successfully",
+    "CUSTOMER_ID_REQUIRED": "Customer id is required",
+    "INVALID_CUSTOMER_ID": "Customer id must be a valid UUID",
+    "STATUS_REQUIRED": "Status is required",
+    "STATUS_MUST_BE_BOOLEAN": "Status must be true or false",
+
+    "INVALID_JSON_DATA": "Invalid JSON data format",
+
+    "LANGUAGE_NOT_FOUND": "Language not found.",
+    "DEFAULT_LANGUAGE_NOT_SET": "Default language not set.",
+    "EMAIL_EXISTS": "Email already exists.",
+
+    "SUBSCRIPTION_NAME_REQUIRED": "Subscription name is required",
+    "INVALID_SUBSCRIPTION_CODE": "Invalid subscription code",
+    "INVALID_PRICE": "Price must be a valid non-negative number",
+    "CURRENCY_REQUIRED": "Currency is required",
+    "INVALID_FEATURES_JSON": "Features must be a valid JSON object",
+    "INVALID_PLAN_ID": "Plan id must be a valid UUID",
+
+    "INVALID_REFERENCE_DATA": "Invalid reference data provided",
+    "UNIQUE_CONSTRAINT_VIOLATION": "Unique constraint violation",
+    "RECORD_NOT_FOUND": "Record not found",
+    "DATABASE_ERROR": "Database error",
+    "CUSTOMER_NOT_FOUND": "Customer not found",
+    "EMAIL_REQUIRED": "Email is required",
+    "INVALID_EMAIL": "Invalid email format",
+    "INVALID_INPUT": "Invalid input data"
+}

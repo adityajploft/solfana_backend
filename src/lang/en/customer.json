@@ -1,0 +1,8 @@
+{
+  "CUSTOMER_LIST": "Customer list retrieved successfully",
+  "CUSTOMER_DETAILS": "Customer details retrieved successfully",
+  "CUSTOMER_STATUS_UPDATED": "Customer status updated successfully",
+  "CUSTOMER_NOT_FOUND": "Customer not found",
+  "CUSTOMER_ID_REQUIRED": "Customer ID is required",
+  "CUSTOMER_ID_INVALID": "Customer ID is invalid"
+}

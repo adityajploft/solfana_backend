@@ -1,0 +1,54 @@
+{
+    "AUDIOAD_CREATED": "Audio Ad created successfully.",
+    "AUDIOAD_LIST": "Audio Ads fetched successfully.",
+    "AUDIOAD_DETAIL": "Audio Ad details fetched successfully.",
+    "AUDIOAD_UPDATED": "Audio Ad updated successfully.",
+    "AUDIOAD_DELETED": "Audio Ad deleted successfully.",
+    "AUDIO_FILE_REQUIRED": "Audio file is required.",
+    "AUDIO_AD_STATUS_CHANGE": "Audio ad status changed successfully.",
+    "AUDIOAD_NOT_FOUND": "Audio ad not found.",
+
+
+    "TITLE_REQUIRED": "Title is required.",
+    "TITLE_STRING_INVALID": "Title must be a string.",
+
+    "DESCRIPTION_STRING_INVALID": "Description must be a string.",
+
+    "PLACEMENTS_REQUIRED": "At least one placement is required.",
+    "PLACEMENTS_STRING_INVALID": "Placements must be a string.",
+    "PLACEMENTS_INVALID_JSON": "Placements must be valid JSON.",
+
+    "SCREEN_REQUIRED": "Screen is required.",
+    "SCREEN_STRING_INVALID": "Screen must be a string.",
+
+    "POSITION_REQUIRED": "Position is required.",
+    "POSITION_STRING_INVALID": "Position must be a string.",
+
+    "SKIP_ENABLED_REQUIRED": "skip_enabled is required.",
+    "SKIP_ENABLED_INVALID": "skip_enabled must be true or false.",
+    "SKIP_ENABLED_STRING_INVALID": "skip_enabled must be a string.",
+
+    "SKIP_AFTER_SEC_REQUIRED": "skip_after_sec is required when skip_enabled is true.",
+    "SKIP_AFTER_SEC_INVALID": "skip_after_sec must be a valid number.",
+    "SKIP_AFTER_SEC_STRING_INVALID": "skip_after_sec must be a string.",
+
+    "USER_TYPE_REQUIRED": "user_type is required.",
+    "USER_TYPE_STRING_INVALID": "user_type must be a string.",
+
+    "START_DATE_REQUIRED": "start_date is required.",
+    "START_DATE_INVALID": "The start date provided is invalid.",
+    "START_DATE_STRING_INVALID": "start_date must be a string.",
+
+    "END_DATE_REQUIRED": "end_date is required.",
+    "END_DATE_INVALID": "The end date provided is invalid.",
+    "END_DATE_AFTER_START_DATE": "The end date must be later than the start date.",
+    "END_DATE_STRING_INVALID": "end_date must be a string.",
+
+    "PRIORITY_REQUIRED": "priority is required.",
+    "PRIORITY_STRING_INVALID": "priority must be a string.",
+
+    "IS_ACTIVE_INVALID": "is_active must be true or false.",
+    "IS_ACTIVE_STRING_INVALID": "is_active must be a string.",
+
+    "TITLE_ALREADY_TAKEN": "An audio ad with this title already exists."
+}

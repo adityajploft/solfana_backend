@@ -1,0 +1,8 @@
+{
+  "REPORT_REASONS_FETCHED": "Motifs de signalement récupérés avec succès",
+  "CONTENT_REPORTED_SUCCESS": "Contenu signalé avec succès",
+  "REASON_REQUIRED": "Le motif est requis",
+  "CUSTOM_REASON_REQUIRED": "Un motif personnalisé est requis pour « Autre »",
+  "CONTENT_ALREADY_REPORTED": "Vous avez déjà soumis ce signalement",
+  "CONTENT_NOT_FOUND": "Signalement de contenu introuvable"
+}

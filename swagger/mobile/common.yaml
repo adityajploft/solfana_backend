@@ -1,0 +1,68 @@
+paths:
+
+  /api/mobile/common/google-admob-settings:
+    get:
+      tags:
+        - Common
+      summary: Get Google AdMob settings
+      security:
+        - BearerAuth: []
+
+      responses:
+        '200':
+          description: Google AdMob settings fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    $ref: '../components/schemas.yaml#/GoogleAdmobSettings'
+
+  /api/mobile/common/internal-audio-ads:
+    get:
+      tags:
+        - Common
+      summary: Get internal audio advertisements
+      security:
+        - BearerAuth: []
+
+      responses:
+        '200':
+          description: Internal audio ads fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '../components/schemas.yaml#/AudioAd'
+
+  /api/mobile/common/banner-ads:
+    get:
+      tags:
+        - Common
+      summary: Get banner advertisements
+      security:
+        - BearerAuth: []
+
+      responses:
+        '200':
+          description: Banner ads fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '../components/schemas.yaml#/BannerAd'

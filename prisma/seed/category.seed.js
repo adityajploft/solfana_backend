@@ -1,0 +1,317 @@
+export async function categorySeed(prisma) {
+  const categories = [
+    {
+      fr: 'Développement personnel',
+      en: 'Personal Development',
+      children: [
+        { fr: 'Motivation', en: 'Motivation' },
+        { fr: 'Discipline', en: 'Discipline' },
+        { fr: 'Mindset', en: 'Mindset' },
+        { fr: 'Productivité', en: 'Productivity' },
+        { fr: 'Habitudes', en: 'Habits' },
+        { fr: 'Confiance en soi', en: 'Self-confidence' },
+        { fr: 'Résilience', en: 'Resilience' },
+        { fr: 'Succès', en: 'Success' },
+        { fr: 'Prise de décision', en: 'Decision Making' },
+        { fr: 'Créativité', en: 'Creativity' },
+        { fr: 'Pleine conscience & méditation', en: 'Mindfulness & Meditation' },
+        { fr: 'Bonheur', en: 'Happiness' },
+        { fr: 'Communication', en: 'Communication' },
+        { fr: 'Persuasion', en: 'Persuasion' },
+      ],
+    },
+    {
+      fr: 'Solfana Original',
+      en: 'Solfana Originals',
+      children: [
+        { fr: 'Série originale', en: 'Original Series' },
+        { fr: 'Fiction originale', en: 'Original Fiction' },
+        { fr: 'Documentaire original', en: 'Original Documentary' },
+        { fr: 'Programme spécial', en: 'Special Program' },
+      ],
+    },
+    {
+      fr: 'Business & Argent',
+      en: 'Business & Money',
+      children: [
+        { fr: 'Entrepreneuriat', en: 'Entrepreneurship' },
+        { fr: 'Startups', en: 'Startups' },
+        { fr: 'Leadership', en: 'Leadership' },
+        { fr: 'Management', en: 'Management' },
+        { fr: 'Innovation', en: 'Innovation' },
+        { fr: 'Marketing', en: 'Marketing' },
+        { fr: 'Vente & persuasion', en: 'Sales & Persuasion' },
+        { fr: 'Négociation', en: 'Negotiation' },
+        { fr: 'Finance personnelle', en: 'Personal Finance' },
+        { fr: 'Investissement', en: 'Investment' },
+        { fr: 'Richesse & patrimoine', en: 'Wealth & Assets' },
+        { fr: 'Économie', en: 'Economy' },
+        { fr: 'Crises économiques', en: 'Economic Crises' },
+        { fr: 'Capitalisme & systèmes économiques', en: 'Capitalism & Economic Systems' },
+      ],
+    },
+    {
+      fr: 'Histoire & Géopolitique',
+      en: 'History & Geopolitics',
+      children: [
+        { fr: 'Histoire africaine', en: 'African History' },
+        { fr: 'Histoire mondiale', en: 'World History' },
+        { fr: 'Histoire ancienne', en: 'Ancient History' },
+        { fr: 'Colonisation', en: 'Colonization' },
+        { fr: 'Guerres & conflits', en: 'Wars & Conflicts' },
+        { fr: 'Révolutions', en: 'Revolutions' },
+        { fr: 'Figures historiques', en: 'Historical Figures' },
+        { fr: 'Civilisations', en: 'Civilizations' },
+        { fr: 'Histoire sociale', en: 'Social History' },
+        { fr: 'Histoire culturelle', en: 'Cultural History' },
+        { fr: 'Histoire des idées', en: 'History of Ideas' },
+        { fr: 'Décryptage historique', en: 'Historical Analysis' },
+        { fr: 'Géopolitique', en: 'Geopolitics' },
+        { fr: 'Systèmes politiques & tyranniques', en: 'Political Systems & Tyrannical' },
+      ],
+    },
+    {
+      fr: 'Société & Culture',
+      en: 'Society & Culture',
+      children: [
+        { fr: 'Culture africaine', en: 'African Culture' },
+        { fr: 'Traditions & héritage', en: 'Traditions & Heritage' },
+        { fr: 'Diaspora', en: 'Diaspora' },
+        { fr: 'Identité', en: 'Identity' },
+        { fr: 'Anthropologie', en: 'Anthropology' },
+        { fr: 'Médias', en: 'Media' },
+        { fr: 'Genre & société', en: 'Gender & Society' },
+        { fr: 'Classe sociale', en: 'Social Class' },
+        { fr: 'Inégalités sociales', en: 'Social Inequalities' },
+        { fr: 'Mouvements sociaux', en: 'Social Movements' },
+        { fr: 'Institutions', en: 'Institutions' },
+        { fr: 'Travail', en: 'Work' },
+        { fr: 'Déviance', en: 'Deviance' },
+        { fr: 'Critique sociale', en: 'Social Critique' },
+        { fr: 'Peuples autochtones', en: 'Indigenous Peoples' },
+      ],
+    },
+    {
+      fr: 'Science & Technologie',
+      en: 'Science & Technology',
+      children: [
+        { fr: 'Intelligence artificielle', en: 'Artificial Intelligence' },
+        { fr: 'Numérique & digital', en: 'Digital & Digital Technology' },
+        { fr: 'Cyber sécurité', en: 'Cybersecurity' },
+        { fr: 'Big data', en: 'Big Data' },
+        { fr: 'Robotique', en: 'Robotics' },
+        { fr: 'Innovation technologique', en: 'Technological Innovation' },
+        { fr: 'Sciences générales', en: 'General Sciences' },
+        { fr: 'Sciences de la vie & de la Terre', en: 'Life & Earth Sciences' },
+        { fr: 'Environnement scientifique', en: 'Scientific Environment' },
+        { fr: 'Grandes entreprises technologiques', en: 'Big Tech Companies' },
+      ],
+    },
+    {
+      fr: 'Spiritualité & Religion',
+      en: 'Spirituality & Religion',
+      children: [
+        { fr: 'Enseignements religieux', en: 'Religious Teachings' },
+        { fr: 'Religion', en: 'Religion' },
+        { fr: 'Christianisme', en: 'Christianity' },
+        { fr: 'Islam', en: 'Islam' },
+        { fr: 'Judaïsme', en: 'Judaism' },
+        { fr: 'Spiritualité', en: 'Spirituality' },
+        { fr: 'Méditation', en: 'Meditation' },
+        { fr: 'Réflexion spirituelle', en: 'Spiritual Reflection' },
+        { fr: 'Valeurs & éthique', en: 'Values & Ethics' },
+      ],
+    },
+    {
+      fr: 'Santé & Bien-être',
+      en: 'Health & Well-being',
+      children: [
+        { fr: 'Santé mentale', en: 'Mental Health' },
+        { fr: 'Bien-être', en: 'Well-being' },
+        { fr: 'Médecine', en: 'Medicine' },
+        { fr: 'Prévention & guérison', en: 'Prevention & Healing' },
+        { fr: 'Lifestyle', en: 'Lifestyle' },
+        { fr: 'Maladies & pandémies', en: 'Diseases & Pandemics' },
+        { fr: 'Bonheur', en: 'Happiness' },
+        { fr: 'Développement personnel appliqué', en: 'Applied Personal Development' },
+      ],
+    },
+    {
+      fr: 'Philosophie & Réflexion',
+      en: 'Philosophy & Reflection',
+      children: [
+        { fr: 'Philosophie ancienne', en: 'Ancient Philosophy' },
+        { fr: 'Philosophie moderne', en: 'Modern Philosophy' },
+        { fr: 'Philosophie politique', en: 'Political Philosophy' },
+        { fr: 'Philosophie sociale', en: 'Social Philosophy' },
+        { fr: 'Philosophie du droit', en: 'Philosophy of Law' },
+        { fr: 'Éthique & morale', en: 'Ethics & Morality' },
+        { fr: 'Métaphysique', en: 'Metaphysics' },
+        { fr: 'Esthétique', en: 'Aesthetics' },
+        { fr: 'Pensée critique', en: 'Critical Thinking' },
+        { fr: 'Philosophie des sciences', en: 'Philosophy of Science' },
+      ],
+    },
+    {
+      fr: 'Psychologie',
+      en: 'Psychology',
+      children: [
+        { fr: 'Psychologie sociale', en: 'Social Psychology' },
+        { fr: 'Psychologie positive', en: 'Positive Psychology' },
+        { fr: 'Psychologie relationnelle', en: 'Relational Psychology' },
+        { fr: 'Psychanalyse', en: 'Psychoanalysis' },
+        { fr: 'Troubles & traumatismes', en: 'Trauma & Disorders' },
+        { fr: 'Comportement humain', en: 'Human Behavior' },
+        { fr: 'Apprentissage', en: 'Learning' },
+        { fr: 'Enfance', en: 'Childhood' },
+        { fr: 'Le cerveau', en: 'The Brain' },
+        { fr: 'Manipulation', en: 'Manipulation' },
+      ],
+    },
+    {
+      fr: 'Relations & Famille',
+      en: 'Relationships & Family',
+      children: [
+        { fr: 'Amour & relations', en: 'Love & Relationships' },
+        { fr: 'Mariage', en: 'Marriage' },
+        { fr: 'Parentalité', en: 'Parenting' },
+        { fr: 'Vie de famille', en: 'Family Life' },
+        { fr: 'Communication relationnelle', en: 'Relationship Communication' },
+        { fr: 'Sexualité', en: 'Sexuality' },
+        { fr: 'Éthique familiale', en: 'Family Ethics' },
+      ],
+    },
+    {
+      fr: 'Divertissement & Fiction',
+      en: 'Entertainment & Fiction',
+      children: [
+        { fr: 'Romance', en: 'Romance' },
+        { fr: 'Science-fiction', en: 'Science Fiction' },
+        { fr: 'Fantastique', en: 'Fantasy' },
+        { fr: 'Horreur', en: 'Horror' },
+        { fr: 'Drame', en: 'Drama' },
+        { fr: 'Humour', en: 'Comedy' },
+        { fr: 'Thriller', en: 'Thriller' },
+        { fr: 'Aventure', en: 'Adventure' },
+        { fr: 'Storytelling', en: 'Storytelling' },
+        { fr: 'Contes', en: 'Tales' },
+        { fr: 'Jeunesse', en: 'Youth' },
+        { fr: 'Séries audio', en: 'Audio Series' },
+        { fr: 'Films audio', en: 'Audio Films' },
+        { fr: 'Narration immersive', en: 'Immersive Narration' },
+      ],
+    },
+    {
+      fr: 'Documentaire & Biographie',
+      en: 'Documentary & Biography',
+      children: [
+        { fr: 'Biographies', en: 'Biographies' },
+        { fr: 'Figures inspirantes', en: 'Inspiring Figures' },
+        { fr: 'Leaders politiques', en: 'Political Leaders' },
+        { fr: 'Innovateurs & pionniers', en: 'Innovators & Pioneers' },
+        { fr: 'Histoires vraies', en: 'True Stories' },
+        { fr: 'Enquêtes', en: 'Investigations' },
+        { fr: 'Documentaires narratifs', en: 'Narrative Documentaries' },
+      ],
+    },
+    {
+      fr: 'Sport & Performance',
+      en: 'Sports & Performance',
+      children: [
+        { fr: 'Performance sportive', en: 'Sports Performance' },
+        { fr: 'Mental sportif', en: 'Sports Mindset' },
+        { fr: 'Bien-être physique', en: 'Physical Well-being' },
+        { fr: 'Stratégie', en: 'Strategy' },
+        { fr: 'Histoires d’athlètes', en: 'Athlete Stories' },
+      ],
+    },
+    {
+      fr: 'Pop Culture',
+      en: 'Pop Culture',
+      children: [
+        { fr: 'Cinéma', en: 'Cinema' },
+        { fr: 'Séries', en: 'Series' },
+        { fr: 'Musique', en: 'Music' },
+        { fr: 'Mode', en: 'Fashion' },
+        { fr: 'Anime', en: 'Anime' },
+        { fr: 'Jeux vidéo', en: 'Video Games' },
+        { fr: 'Tendances culturelles', en: 'Cultural Trends' },
+      ],
+    },
+    {
+      fr: 'Droit & Politique',
+      en: 'Law & Politics',
+      children: [
+        { fr: 'Droit', en: 'Law' },
+        { fr: 'Culture juridique', en: 'Legal Culture' },
+        { fr: 'Lois & régulations', en: 'Laws & Regulations' },
+        { fr: 'Philosophie politique', en: 'Political Philosophy' },
+        { fr: 'Démocratie', en: 'Democracy' },
+        { fr: 'Géopolitique', en: 'Geopolitics' },
+        { fr: 'Politique africaine', en: 'African Politics' },
+        { fr: 'Politique internationale', en: 'International Politics' },
+        { fr: 'Idéologies politiques', en: 'Political Ideologies' },
+      ],
+    },
+    {
+      fr: 'Nature & Environnement',
+      en: 'Nature & Environment',
+      children: [
+        { fr: 'Climat', en: 'Climate' },
+        { fr: 'Écologie', en: 'Ecology' },
+        { fr: 'Biodiversité', en: 'Biodiversity' },
+        { fr: 'Développement durable', en: 'Sustainable Development' },
+        { fr: 'Agriculture & alimentation', en: 'Agriculture & Food' },
+        { fr: 'Urbanisme', en: 'Urban Planning' },
+        { fr: 'Anthropocène', en: 'Anthropocene' },
+        { fr: 'Collapsologie', en: 'Collapse Studies' },
+        { fr: 'Environnement & société', en: 'Environment & Society' },
+      ],
+    },
+    {
+      fr: 'Activisme & Engagement',
+      en: 'Activism & Engagement',
+      children: [
+        { fr: 'Droits humains', en: 'Human Rights' },
+        { fr: 'Féminisme', en: 'Feminism' },
+        { fr: 'Environnement', en: 'Environment' },
+        { fr: 'Démocratie', en: 'Democracy' },
+        { fr: 'Engagement citoyen', en: 'Citizen Engagement' },
+      ],
+    },
+  ];
+
+  const FR = 2;
+  const EN = 1;
+
+  async function createCategoryTree(nodes, parentId = null, level = 1) {
+    for (const node of nodes) {
+      const created = await prisma.category.create({
+        data: {
+          name: node.fr,
+          parentId,
+          level,
+          translations: {
+            create: [
+              {
+                languageId: FR,
+                name: node.fr,
+              },
+              {
+                languageId: EN,
+                name: node.en,
+              },
+            ],
+          },
+        },
+      });
+
+      if (node.children && node.children.length > 0) {
+        await createCategoryTree(node.children, created.id, level + 1);
+      }
+    }
+  }
+
+  await createCategoryTree(categories);
+  console.log('Category seeded');
+}

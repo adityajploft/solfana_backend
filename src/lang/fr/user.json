@@ -1,0 +1,15 @@
+{
+  "USER_CREATED": "Utilisateur créé avec succès",
+  "USER_LIST": "Utilisateurs récupérés avec succès",
+  "USER_DETAILS": "Détails de l’utilisateur récupérés",
+  "USER_UPDATED": "Utilisateur mis à jour avec succès",
+  "USER_DELETED": "Utilisateur supprimé avec succès",
+  "USER_NOT_FOUND": "Utilisateur introuvable",
+  "EMAIL_EXISTS": "L’e-mail existe déjà",
+  "PHONE_EXISTS": "Le numéro de téléphone existe déjà",
+  "INVALID_ROLE_ID": "Identifiant de rôle invalide",
+  "ROLE_NOT_FOUND": "Rôle introuvable",
+  "SUPER_ADMIN_EXISTS": "Le Super Admin existe déjà",
+  "CANNOT_DELETE_SUPER_ADMIN": "Impossible de supprimer le Super Admin",
+  "CANNOT_CHANGE_SUPER_ADMIN_ROLE": "Impossible de modifier le rôle du Super Admin"
+}

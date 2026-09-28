@@ -1,0 +1,66 @@
+paths:
+
+  /api/mobile/notifications:
+    get:
+      tags:
+        - Notifications
+      summary: Get notification list
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - all
+              - read
+              - unread
+          example: all
+
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+          example: 1
+
+      responses:
+        '200':
+          description: Notifications fetched successfully
+
+  /api/mobile/notifications/{notificationId}/mark-read:
+    post:
+      tags:
+        - Notifications
+      summary: Mark notification as read
+      security:
+        - BearerAuth: []
+
+      parameters:
+        - name: notificationId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 6f2d9d4b-dfb5-4d72-b7ec-5ee56bbad507
+
+      responses:
+        '200':
+          description: Notification marked as read
+
+  /api/mobile/notifications/mark-read-all:
+    post:
+      tags:
+        - Notifications
+      summary: Mark all notifications as read
+      security:
+        - BearerAuth: []
+
+      responses:
+        '200':
+          description: All notifications marked as read

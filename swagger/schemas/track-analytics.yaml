@@ -1,0 +1,70 @@
+StartListenRequest:
+  type: object
+  required:
+    - trackId
+
+  properties:
+    trackId:
+      type: string
+      format: uuid
+      example: 4e723914-06a5-4c61-a29b-8d1c73856d06
+
+
+ListenProgressRequest:
+  type: object
+  required:
+    - sessionId
+    - trackId
+    - consumedSeconds
+    - currentPositionSec
+
+  properties:
+    sessionId:
+      type: string
+      format: uuid
+
+    trackId:
+      type: string
+      format: uuid
+
+    consumedSeconds:
+      type: integer
+      example: 30
+      description: Seconds listened since last update
+
+    currentPositionSec:
+      type: integer
+      example: 60
+      description: Current playback position in seconds
+
+
+PlayTrackRequest:
+  type: object
+  required:
+    - trackId
+    - source
+    - sourceId
+
+  properties:
+    trackId:
+      type: string
+      format: uuid
+      example: eb311db3-17b1-4ce7-a5cd-708348caf7ca
+
+    source:
+      type: string
+      enum:
+        - playlist
+        - album
+        - like
+        - favorite
+        - library
+        - recent
+        - single
+      example: playlist
+
+    sourceId:
+      type: string
+      format: uuid
+      description: For source=single, sourceId can be the same as trackId
+      example: 625edf1f-68cf-48e8-ba79-eadce614fa92

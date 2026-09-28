@@ -1,0 +1,15 @@
+{
+  "USER_CREATED": "User created successfully",
+  "USER_LIST": "Users fetched successfully",
+  "USER_DETAILS": "User details fetched",
+  "USER_UPDATED": "User updated successfully",
+  "USER_DELETED": "User deleted successfully",
+  "USER_NOT_FOUND": "User not found",
+  "EMAIL_EXISTS": "Email already exists",
+  "PHONE_EXISTS": "Phone already exists",
+  "INVALID_ROLE_ID": "Invalid role id",
+  "ROLE_NOT_FOUND": "Role not found",
+  "SUPER_ADMIN_EXISTS": "Super Admin already exists",
+  "CANNOT_DELETE_SUPER_ADMIN": "Cannot delete Super Admin",
+  "CANNOT_CHANGE_SUPER_ADMIN_ROLE": "Cannot change role of Super Admin"
+}

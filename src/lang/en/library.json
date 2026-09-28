@@ -1,0 +1,21 @@
+{
+    "LIBRARY_FETCHED": "Library fetched successfully",
+    "ALBUM_ADDED_TO_FAVORITE": "Album added to favorites successfully",
+    "TRACK_ADDED_TO_FAVORITE": "Track added to favorites successfully",
+    "ALBUM_REMOVED_FROM_FAVORITE": "Album removed from favorites successfully",
+    "TRACK_REMOVED_FROM_FAVORITE": "Track removed from favorites successfully",
+    "FAVORITES_FETCHED": "Favorites fetched successfully",
+    "ALBUM_LIKED_SUCCESS": "Album liked successfully",
+    "TRACK_LIKED_SUCCESS": "Track liked successfully",
+    "ALBUM_DISLIKED_SUCCESS": "Album disliked successfully",
+    "TRACK_DISLIKED_SUCCESS": "Track disliked successfully",
+    "ALBUM_ADDED_TO_LIBRARY": "Album added to library",
+    "TRACK_ADDED_TO_LIBRARY": "Track added to library",
+    "ALBUM_REMOVED_FROM_LIBRARY": "Album removed from library",
+    "TRACK_REMOVED_FROM_LIBRARY": "Track removed from library",
+    "LIKES_FETCHED": "Likes fetched successfully",
+    "ALBUM_LIKE_REMOVED_SUCCESS": "Album like removed successfully",
+    "TRACK_LIKE_REMOVED_SUCCESS": "Track like removed successfully",
+    "ALBUM_DISLIKE_REMOVED_SUCCESS": "Album dislike removed successfully",
+    "TRACK_DISLIKE_REMOVED_SUCCESS": "Track dislike removed successfully"
+}

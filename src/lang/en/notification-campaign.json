@@ -1,0 +1,9 @@
+{
+    "NOTIFICATIONCAMPAIGN_CREATED": "Notification campaign created successfully.",
+    "NOTIFICATIONCAMPAIGN_LIST": "Notification campaigns fetched successfully.",
+    "NOTIFICATIONCAMPAIGN_DETAIL": "Notification campaign details fetched successfully.",
+    "NOTIFICATIONCAMPAIGN_UPDATED": "Notification campaign updated successfully.",
+    "NOTIFICATIONCAMPAIGN_DELETED": "Notification campaign deleted successfully.",
+    "NOTIFICATIONCAMPAIGN_NOT_FOUND": "Notification campaign not found.",
+    "NOTIFICATIONCAMPAIGN_STATUS_CHANGE": "The Notification campaign status has been successfully changed."
+}

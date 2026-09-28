@@ -1,0 +1,1924 @@
+openapi: 3.0.0
+info:
+  title: Solfana Backend API
+  version: 1.0.0
+  description: Complete API documentation for Solfana backend system
+servers:
+  - url: http://localhost:3000
+    description: Development server
+
+paths:
+  # ==================== MOBILE APIs ====================
+  # MOBILE AUTH
+  /api/mobile/auth/register:
+    post:
+      summary: Request OTP for registration
+      tags:
+        - Mobile - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+              properties:
+                email:
+                  type: string
+                  format: email
+                language:
+                  type: string
+                  enum: [en, fr]
+                  default: en
+              example:
+                email: user1@example.com
+                language: en
+      responses:
+        '200':
+          description: OTP sent successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "OTP sent successfully"
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+  /api/mobile/auth/verify-otp:
+    post:
+      summary: Verify OTP and register/login user
+      tags:
+        - Mobile - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - otp
+                - deviceId
+              properties:
+                email:
+                  type: string
+                  format: email
+                otp:
+                  type: string
+                  minLength: 6
+                  maxLength: 6
+                  pattern: '^[0-9]{6}$'
+                deviceId:
+                  type: string
+                phone:
+                  type: string
+                  minLength: 10
+                  maxLength: 10
+                language:
+                  type: string
+                  enum: [en, fr]
+              example:
+                email: user1@example.com
+                otp: '746276'
+                deviceId: device-unique-id
+                phone: '9876543210'
+                language: en
+      responses:
+        '200':
+          description: OTP verified successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                  customer:
+                    $ref: '#/components/schemas/Customer'
+        '400':
+          description: Invalid or expired OTP
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+  /api/mobile/auth/me:
+    get:
+      summary: Get current customer profile
+      tags:
+        - Mobile - Auth
+      security:
+        - MobileBearerAuth: []
+      responses:
+        '200':
+          description: Customer profile retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    $ref: '#/components/schemas/Customer'
+        '401':
+          description: Unauthorized - Invalid or missing token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/mobile/auth/onboarding/interests:
+    post:
+      summary: Save customer interests during onboarding
+      tags:
+        - Mobile - Auth
+      security:
+        - MobileBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - interestIds
+              properties:
+                interestIds:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: integer
+              example:
+                interestIds:
+                  - 1
+                  - 2
+                  - 3
+      responses:
+        '200':
+          description: Interests saved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Interests saved"
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+  /api/mobile/auth/user/language:
+    put:
+      summary: Update customer language preference
+      tags:
+        - Mobile - Auth
+      security:
+        - MobileBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - language
+              properties:
+                language:
+                  type: string
+                  enum: [en, fr]
+              example:
+                language: fr
+      responses:
+        '200':
+          description: Language updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    $ref: '#/components/schemas/Customer'
+        '400':
+          description: Invalid language
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/mobile/auth/logout:
+    post:
+      summary: Logout customer
+      tags:
+        - Mobile - Auth
+      security:
+        - MobileBearerAuth: []
+      responses:
+        '200':
+          description: Logged out successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Logged out successfully"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # MOBILE INTERESTS
+  /api/mobile/interests/:
+    get:
+      summary: Get all active interests/categories
+      tags:
+        - Mobile - Interests
+      parameters:
+        - name: accept-language
+          in: header
+          required: false
+          schema:
+            type: string
+            enum: [en, fr]
+          description: Language preference (en/fr)
+      responses:
+        '200':
+          description: List of interests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Interest'
+
+  # ==================== ADMIN APIs ====================
+  # ADMIN AUTH
+  /api/admin/auth/login:
+    post:
+      summary: Admin login
+      tags:
+        - Admin - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 8
+              example:
+                email: super.admin@solfana.com
+                password: SuperAdmin@123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      email:
+                        type: string
+                      roleId:
+                        type: integer
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+  /api/admin/auth/forgot-password:
+    post:
+      summary: Request password reset email
+      tags:
+        - Admin - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+              properties:
+                email:
+                  type: string
+                  format: email
+              example:
+                email: super.admin@solfana.com
+      responses:
+        '200':
+          description: Reset email sent if account exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "If the email exists, a reset link was sent."
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+  /api/admin/auth/reset-password:
+    post:
+      summary: Reset password with token
+      tags:
+        - Admin - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - token
+                - newPassword
+                - confirmPassword
+              properties:
+                token:
+                  type: string
+                  minLength: 10
+                newPassword:
+                  type: string
+                  minLength: 6
+                confirmPassword:
+                  type: string
+                  minLength: 6
+              example:
+                token: 26ae936f0fb3cf0a973cc90665405c621e92498111408e77f50267d5410b9656
+                newPassword: SuperAdmin@123
+                confirmPassword: SuperAdmin@123
+      responses:
+        '200':
+          description: Password reset successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Password reset successfully"
+        '401':
+          description: Invalid or expired token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error or passwords don't match
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+  /api/admin/auth/logout:
+    post:
+      summary: Admin logout
+      tags:
+        - Admin - Auth
+      security:
+        - AdminBearerAuth: []
+      responses:
+        '200':
+          description: Logged out successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Logged out successfully"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ADMIN ROLES
+  /api/admin/roles:
+    post:
+      summary: Create a new role
+      tags:
+        - Admin - Roles
+      security:
+        - AdminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - roleName
+              properties:
+                roleName:
+                  type: string
+                  minLength: 2
+                  maxLength: 50
+                permissionIds:
+                  type: array
+                  items:
+                    type: integer
+              example:
+                roleName: Manager
+                permissionIds:
+                  - 42
+                  - 43
+                  - 44
+      responses:
+        '201':
+          description: Role created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Role created successfully"
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Role already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+    get:
+      summary: Get all roles with permissions
+      tags:
+        - Admin - Roles
+      security:
+        - AdminBearerAuth: []
+      responses:
+        '200':
+          description: List of roles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Roles fetched successfully"
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RoleWithPermissions'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/admin/roles/{id}:
+    get:
+      summary: Get role by ID
+      tags:
+        - Admin - Roles
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 12
+      responses:
+        '200':
+          description: Role details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    $ref: '#/components/schemas/Role'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Role not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    put:
+      summary: Update role
+      tags:
+        - Admin - Roles
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 14
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roleName:
+                  type: string
+                  minLength: 2
+                  maxLength: 50
+                permissionIds:
+                  type: array
+                  items:
+                    type: integer
+              example:
+                roleName: Manager333
+                permissionIds:
+                  - 77
+                  - 78
+      responses:
+        '200':
+          description: Role updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Role updated successfully"
+        '400':
+          description: Bad request (invalid permission IDs or role name exists)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Role not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+    delete:
+      summary: Delete role
+      tags:
+        - Admin - Roles
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 14
+      responses:
+        '200':
+          description: Role deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Role deleted successfully"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Role not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ADMIN PERMISSIONS
+  /api/admin/permissions:
+    post:
+      summary: Create permissions
+      tags:
+        - Admin - Permissions
+      security:
+        - AdminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - permissions
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                permissions:
+                  type: array
+                  minItems: 1
+                  items:
+                    $ref: '#/components/schemas/PermissionItem'
+              example:
+                name: hello
+                permissions:
+                  - module: helloqq
+                    actions:
+                      - read
+                      - write
+      responses:
+        '200':
+          description: Permissions created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Permissions created successfully"
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Permission'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Permission already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+    get:
+      summary: Get all permissions grouped by module
+      tags:
+        - Admin - Permissions
+      responses:
+        '200':
+          description: List of permissions grouped by module
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Permissions fetched successfully"
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GroupedPermission'
+
+  /api/admin/permissions/{id}:
+    get:
+      summary: Get permission by ID
+      tags:
+        - Admin - Permissions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: Permission details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+        '404':
+          description: Permission not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    delete:
+      summary: Delete permission
+      tags:
+        - Admin - Permissions
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 8
+      responses:
+        '200':
+          description: Permission deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Permission deleted successfully"
+                  data:
+                    $ref: '#/components/schemas/Permission'
+        '401':
+          description: Unauthorized or permission is assigned to a role
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Permission not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ADMIN USERS
+  /api/admin/users:
+    post:
+      summary: Create a new user
+      tags:
+        - Admin - Users
+      security:
+        - AdminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+                - roleId
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 8
+                name:
+                  type: string
+                phone:
+                  type: string
+                profileImage:
+                  type: string
+                roleId:
+                  type: integer
+              example:
+                email: admin@example.com
+                password: password123
+                name: Admin
+                phone: '+911235567890'
+                profileImage: default-avatar.png
+                roleId: 12
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "User created successfully"
+                  data:
+                    $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request (email/phone exists, invalid role, super admin limit)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+    get:
+      summary: Get all users
+      tags:
+        - Admin - Users
+      security:
+        - AdminBearerAuth: []
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Users fetched successfully"
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UserWithRole'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/admin/users/{id}:
+    get:
+      summary: Get user by ID
+      tags:
+        - Admin - Users
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: c1cd4fab-714c-4b6c-80c6-aef40195567c
+      responses:
+        '200':
+          description: User details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    $ref: '#/components/schemas/UserWithRole'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    put:
+      summary: Update user
+      tags:
+        - Admin - Users
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: fe0f8822-8800-44f5-a6d8-3fba1d0b4e56
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                name:
+                  type: string
+                phone:
+                  type: string
+                profileImage:
+                  type: string
+                password:
+                  type: string
+                  minLength: 8
+                roleId:
+                  type: integer
+                isActive:
+                  type: boolean
+              example:
+                name: Manager
+                phone: '+911235567891'
+                profileImage: uploads/profile-images/new-image.png
+                password: newpassword123
+                roleId: 12
+                isActive: true
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "User updated successfully"
+                  data:
+                    $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request (cannot change super admin role, email/phone exists)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+    delete:
+      summary: Delete user
+      tags:
+        - Admin - Users
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: fe0f8822-8800-44f5-a6d8-3fba1d0b4e56
+      responses:
+        '200':
+          description: User deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "User deleted successfully"
+        '400':
+          description: Cannot delete super admin
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ADMIN PROFILE
+  /api/admin/profile:
+    get:
+      summary: Get admin profile
+      tags:
+        - Admin - Profile
+      security:
+        - AdminBearerAuth: []
+      responses:
+        '200':
+          description: Admin profile retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    $ref: '#/components/schemas/UserWithRole'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # USER PROFILE (under admin but for user self-management)
+  /api/users/profile:
+    patch:
+      summary: Update user profile
+      tags:
+        - Admin - Profile
+      security:
+        - AdminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                phone:
+                  type: string
+                profileImage:
+                  type: string
+                  format: binary
+              example:
+                name: Rohit Jain
+                phone: '+911234567690'
+      responses:
+        '200':
+          description: Profile updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Profile updated successfully"
+                  data:
+                    $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request (phone already exists)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+  /api/users/change-password:
+    patch:
+      summary: Change password
+      tags:
+        - Admin - Profile
+      security:
+        - AdminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - currentPassword
+                - newPassword
+                - confirmPassword
+              properties:
+                currentPassword:
+                  type: string
+                newPassword:
+                  type: string
+                  minLength: 8
+                confirmPassword:
+                  type: string
+                  minLength: 8
+              example:
+                currentPassword: password123
+                newPassword: newpassword123
+                confirmPassword: newpassword123
+      responses:
+        '200':
+          description: Password changed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Password changed successfully"
+        '400':
+          description: Current password incorrect or passwords don't match
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+  # ADMIN CATEGORIES
+  /api/admin/categories:
+    post:
+      summary: Create category
+      tags:
+        - Admin - Categories
+      security:
+        - AdminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                isActive:
+                  type: boolean
+                  default: true
+                translations:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Translation'
+              example:
+                name: Workout
+                translations:
+                  - lang: en
+                    name: Workout
+                  - lang: fr
+                    name: Entraînement
+      responses:
+        '201':
+          description: Category created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Category created successfully"
+                  data:
+                    $ref: '#/components/schemas/CategoryWithTranslations'
+        '400':
+          description: Bad request (language not found)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Category already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+    get:
+      summary: Get all categories with translations
+      tags:
+        - Admin - Categories
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: lang
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [en, fr]
+          example: en
+      responses:
+        '200':
+          description: List of categories
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Categories fetched successfully"
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CategoryWithTranslations'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/admin/categories/{id}:
+    get:
+      summary: Get category by ID
+      tags:
+        - Admin - Categories
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 2
+        - name: lang
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [en, fr]
+          example: fr
+      responses:
+        '200':
+          description: Category details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    $ref: '#/components/schemas/Category'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Category not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    put:
+      summary: Update category
+      tags:
+        - Admin - Categories
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 2
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                isActive:
+                  type: boolean
+                translations:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Translation'
+              example:
+                name: Workout Updated
+                isActive: true
+                translations:
+                  - lang: en
+                    name: Workout Updated
+                  - lang: fr
+                    name: Entraînement mis à jour
+      responses:
+        '200':
+          description: Category updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Category updated successfully"
+                  data:
+                    $ref: '#/components/schemas/Category'
+        '400':
+          description: Bad request (category name exists)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Category not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Category name already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+    delete:
+      summary: Delete category
+      tags:
+        - Admin - Categories
+      security:
+        - AdminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 3
+      responses:
+        '200':
+          description: Category deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Category deleted successfully"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Category not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+# ==================== TAGS DEFINITION ====================
+tags:
+  - name: Mobile - Auth
+    description: Mobile customer authentication APIs
+  - name: Mobile - Interests
+    description: Mobile interests/categories APIs
+  - name: Admin - Auth
+    description: Admin authentication APIs
+  - name: Admin - Roles
+    description: Admin role management APIs
+  - name: Admin - Permissions
+    description: Admin permission management APIs
+  - name: Admin - Users
+    description: Admin user management APIs
+  - name: Admin - Profile
+    description: Admin and user profile management APIs
+  - name: Admin - Categories
+    description: Admin category management APIs
+
+components:
+  securitySchemes:
+    AdminBearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token for admin users
+    MobileBearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token for mobile customers
+
+  schemas:
+    # Common Schemas
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          example: "Error message"
+
+    ValidationError:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          example: "Validation failed"
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+
+    # Mobile Auth Schemas
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        languageId:
+          type: integer
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    # Interest Schemas
+    Interest:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
+    # Admin Auth Schemas
+    LoginResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+        user:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            email:
+              type: string
+            roleId:
+              type: integer
+
+    # Role Schemas
+    Role:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        permissionIds:
+          type: array
+          items:
+            type: integer
+
+    RoleWithPermissions:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        permissionsByModule:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+
+    # Permission Schemas
+    PermissionItem:
+      type: object
+      properties:
+        module:
+          type: string
+          minLength: 1
+        actions:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            minLength: 1
+
+    Permission:
+      type: object
+      properties:
+        id:
+          type: integer
+        module:
+          type: string
+        action:
+          type: string
+        name:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+
+    GroupedPermission:
+      type: object
+      properties:
+        module:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+
+    # User Schemas
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        phone:
+          type: string
+        profileImage:
+          type: string
+        role:
+          $ref: '#/components/schemas/RoleBasic'
+        createdAt:
+          type: string
+          format: date-time
+
+    UserWithRole:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        phone:
+          type: string
+        profileImage:
+          type: string
+        role:
+          $ref: '#/components/schemas/RoleBasic'
+        createdAt:
+          type: string
+          format: date-time
+
+    RoleBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
+    # Category Schemas
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        isActive:
+          type: boolean
+
+    CategoryWithTranslations:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        isActive:
+          type: boolean
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationItem'
+
+    Translation:
+      type: object
+      properties:
+        lang:
+          type: string
+          minLength: 2
+        name:
+          type: string
+          minLength: 1
+
+    TranslationItem:
+      type: object
+      properties:
+        lang:
+          type: string
+        name:
+          type: string  

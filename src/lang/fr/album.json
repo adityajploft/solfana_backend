@@ -1,0 +1,55 @@
+{
+  "ALBUM_CREATED": "Album créé avec succès.",
+  "ALBUM_LIST": "Albums récupérés avec succès.",
+  "ALBUM_DETAIL": "Détails de l’album récupérés avec succès.",
+  "ALBUM_UPDATED": "Album mis à jour avec succès.",
+  "ALBUM_DELETED": "Album supprimé avec succès.",
+  "ALBUM_ALREADY_EXISTS": "L’album existe déjà.",
+  "COVER_IMAGE_REQUIRED": "L’image de couverture est requise.",
+
+  "TRACKS_FETCHED": "Pistes récupérées avec succès.",
+  "ALBUM_NOT_FOUND": "Album introuvable.",
+
+  "ALBUM_PUBLISHED_SUCCESS": "Album publié avec succès.",
+  "ALBUM_SCHEDULED_SUCCESS": "Album programmé avec succès.",
+  "ALBUM_SCHEDULE_DELETED": "La programmation de publication a été supprimée avec succès.",
+  "PUBLISH_REQUEST_LIST": "Liste des demandes de publication récupérée avec succès.",
+  "PUBLISH_REQUEST_ACTION_DONE": "Action sur la demande de publication effectuée avec succès.",
+  "BULK_REQUEST_ACTION_DONE": "Action groupée sur les demandes de publication effectuée avec succès.",
+  "UNAUTHORIZED": "Vous n’êtes pas autorisé à effectuer cette action.",
+
+  "ONLY_VERIFIED_PODCASTER_CAN_SCHEDULE": "Seuls les podcasteurs vérifiés peuvent programmer la publication d’un album.",
+  "ALBUM_NOT_SCHEDULED": "Cet album n’est pas programmé pour la publication.",
+  "REQUEST_NOT_FOUND": "Demande de publication introuvable.",
+  "REQUEST_ALREADY_SENT": "La demande a déjà été envoyée.",
+  "TITLE_REQUIRED": "Le titre est requis",
+  "INVALID_ACTION": "Action invalide",
+
+  "PUBLISH_REQUEST_SENT_TO_ADMIN": "La demande de publication a été envoyée à l’administrateur.",
+
+  "CATEGORY_REQUIRED": "Au moins une catégorie est requise",
+  "CATEGORY_NOT_FOUND": "Une ou plusieurs catégories sont introuvables",
+  "INVALID_CATEGORY_IDS": "categoryIds invalides. Doivent être un tableau d'UUID valides",
+  "INVALID_PODCASTER_ID": "podcasterId invalide. Doit être un UUID valide",
+  "INVALID_STATUS": "Statut invalide. Doit être l’un des suivants : DRAFT, PENDING_APPROVAL, PUBLISHED",
+  "TRANSLATIONS_REQUIRED": "Au moins une traduction est requise",
+  "INVALID_TRANSLATIONS": "Format des traductions invalide. Doit être un tableau d'objets avec langue, titre et description",
+  "INVALID_TRANSLATIONS_JSON": "Format JSON des traductions invalide",
+  "INVALID_TRANSLATION_LANGUAGE": "Langue de traduction invalide",
+  "INVALID_TRANSLATION_TITLE": "Le titre de la traduction est requis",
+  "INVALID_TRANSLATION_DESCRIPTION": "La description de la traduction est requise",
+  "INVALID_META_TITLE": "Le meta title doit être une chaîne de caractères",
+  "INVALID_META_DESCRIPTION": "La meta description doit être une chaîne de caractères",
+  "INVALID_META_KEYWORDS": "Les meta keywords doivent être un tableau de chaînes de caractères",
+  "UPDATE_DATA_REQUIRED": "Au moins un champ doit être fourni pour la mise à jour",
+  "INVALID_CATEGORY_JSON": "Format JSON de categoryIds invalide",
+  "INVALID_CATEGORY_ID": "ID de catégorie invalide. Doit être un UUID valide",
+  "INVALID_TOTAL_DURATION": "totalDuration invalide. Doit être un nombre valide",
+  "TYPE_REQUIRED": "Le type est requis.",
+  "INVALID_TYPE": "Type invalide. Les valeurs autorisées sont PODCAST ou AUDIOBOOK.",
+
+  "INVALID_TITLE": "Titre de l'album invalide.",
+
+  "DESCRIPTION_REQUIRED": "La description de l'album est requise.",
+  "INVALID_DESCRIPTION": "Description de l'album invalide."
+}

@@ -1,0 +1,36 @@
+{
+  "CATEGORY_CREATED": "Category created successfully",
+  "CATEGORY_UPDATED": "Category updated successfully",
+  "CATEGORY_DELETED": "Category deleted successfully",
+  "CATEGORY_LIST": "Categories fetched successfully",
+  "CATEGORY_DETAIL": "Category details fetched",
+  "CATEGORY_EXISTS": "Category already exists",
+  "CATEGORY_NOT_FOUND": "Category not found",
+
+
+  "INTERESTS_FETCHED": "Interests fetched successfully",
+
+  "FETCHED": "Data fetched successfully",
+  "SEARCH_RESULTS_FETCHED": "Search results fetched successfully",
+  "PODCAST_CATEGORIES_FETCHED": "Podcast categories fetched successfully",
+  "AUDIOBOOK_CATEGORIES_FETCHED": "Audiobook categories fetched successfully",
+  "GENRES_FETCHED": "Genres fetched successfully",
+  "GENRE_CONTENT_FETCHED": "Genre content fetched successfully",
+  "GENRE_NOT_FOUND": "Genre not found",
+
+  "CATEGORY_NAME_REQUIRED": "Category name is required",
+  "INVALID_CATEGORY_TYPE": "Invalid category type. Allowed values are PODCAST or AUDIOBOOK",
+  "LEVEL_REQUIRED": "Level must be a positive integer",
+  "INVALID_TRANSLATIONS_JSON": "Invalid translations JSON format",
+  "TYPE_REQUIRED": "Type is required.",
+  "CATEGORY_ID_REQUIRED": "Category ID is required.",
+  "INVALID_CATEGORY": "Invalid category. Only parent categories are allowed.",
+  "SUBCATEGORY_FETCHED": "Subcategories fetched successfully.",
+  "INVALID_TYPE": "Invalid type. Allowed values are PODCAST or AUDIOBOOK.",
+  "CATEGORY_ALREADY_EXISTS": "Category with the same name already exists at this level.",
+  "CDN_UPLOAD_FAILED": "CDN upload failed",
+
+  "INVALID_LEVEL": "Invalid level. Level must be a positive integer.",
+  "INVALID_PARENT_ID": "Invalid parentId. parentId must be a non-empty string or null."
+
+}

@@ -1,0 +1,5 @@
+{
+    "TRANSACTION_LIST_FETCHED": "Liste des transactions récupérée avec succès.",
+    "TRANSACTION_NOT_FOUND": "Transaction non trouvée.",
+    "TRANSACTION_DETAIL_FETCHED": "Détails de la transaction récupérés avec succès."
+}
